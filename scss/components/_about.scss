@@ -1,0 +1,65 @@
+#about {
+    padding: 60px 0 0;
+    text-align: center;
+    @include grid(about);
+    p {
+        color: $text;
+        font-size: .85rem;
+        line-height: 1.5;
+        max-width: 430px;
+        padding: 0 30px;
+        margin: 0 auto 10px;
+        text-align: left;
+        // @include mq(768px) {
+        //     margin-left: 0;
+        // }
+    }
+    strong {
+        color: $primary;
+        font-weight: 600;
+        &.focus {
+            letter-spacing: .5px;
+        }
+    }
+    span {
+        font-size: .6rem;
+    }
+}
+
+#profile-img {
+    display: none;
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto 20px;
+    @include mq(768px) {
+        margin: 0 0 30px;
+    }
+    @include mq(1024px) {
+        float: left;
+    }
+}
+
+#skills {
+    background-color: $secondary;
+    background-image: url(../images/astronomy-dark.jpg);
+    background-size: 180%;
+    background-position: 10% 8%;
+    padding: 3.5rem 0;
+    margin-top: 3.5rem;
+    p {
+        color: $primary;
+        text-align: center;
+        line-height: 1.8;
+        margin: 0 auto;
+    }
+    .container {
+        padding: 2rem 0 0;
+        &_adobe {
+            margin-bottom: 5px;
+        }
+        // padding: 0 3rem;
+        // display: flex;
+        // flex-wrap: wrap;
+        // justify-content: space-evenly;
+    }
+}

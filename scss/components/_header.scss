@@ -1,0 +1,45 @@
+//==========================================================
+//                          HEADER
+//==========================================================
+header {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    background: transparent;
+    // background-image: url(../images/owl.png);
+    // background-repeat: no-repeat;
+    // background-size: 180%;
+    // background-position: 65% 0%;
+    // background-color: rgba(255, 255, 255, 0.199);
+    // background-blend-mode: lighten;
+    @include grid(header);
+    &::after {
+        content: '';
+        display: block;
+        width: 20%;
+        margin: 0 auto 40px;
+        border-bottom: 4px solid lighten($primary, 10%);
+    }
+    // @include mq(768px) {
+    //     position: fixed;
+    //     width: 305px;
+    //     top: 0;
+    //     left: 0;
+    // }
+    // @include mq(1024px) {
+    //     padding: 4rem 3rem 3rem;
+    //     // width: 300px;
+    // }
+    span {
+        display: none;
+    }
+    .container {
+        display: none;
+        padding: 1.2rem;
+        text-align: right;
+        position: fixed;
+        top: 0;
+        right: 0;
+    }
+}

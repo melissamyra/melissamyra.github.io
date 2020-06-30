@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: $main;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $sans;
+    color: $secondary;
+    background-image: url(../images/owl.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 180%;
+    background-position: 65% 0%;
+    background-color: rgba(255, 255, 255, 0.199);
+    background-blend-mode: lighten;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+h1, h2, h3 {
+    color: $primary;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+h1, h2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    // text-transform: uppercase;
+}
+
+h3 {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: .85rem;
+    padding-bottom: 5px;
+    border-bottom: 1px solid lighten($primary, 10%);
+    margin-bottom: 30px;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+main {
+    background-color: $main;
+}

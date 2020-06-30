@@ -1,0 +1,123 @@
+.menu {
+    &_mobile {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        padding: 1.5rem;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: $main;
+        h2 {
+            margin-top: -3px;
+            pointer-events: none;
+        }
+    }
+}
+
+nav {
+    a,label {
+        color: $nav-default;
+        text-transform: uppercase;
+        font-size: .80rem;
+        font-weight: 500;
+        padding: 15px 0;
+        cursor: pointer;
+        letter-spacing: 1px;
+        border-bottom: 1px solid $text;
+            &:hover {
+                color: $text-hover;
+            }
+        }
+    li {
+        list-style-type: none;
+        margin-bottom: 10px;
+        min-width: max-content;
+    }
+}
+
+#nav {
+    &_mobile { //MOBILE NAV
+        display: flex; //to view - set flex
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: $nav;
+        height: 100vh;
+        // width: 80vw;
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+        padding: 4rem 0 1rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        transition: width .5s, padding .5s;
+    }
+    &_home, &_portfolio, &_about, &_contact { //checkbox input
+        display: none;
+    }
+    &_portfolio {
+        &:checked {
+            &~ label {
+                &[for$="portfolio"] {
+                    border-bottom: transparent;
+                    margin-bottom: 0;
+                }
+            }
+            &~ a {
+                &[href="#contact"] {
+                    border-top: 1px solid $text;
+                }
+            }
+            &~ .portfolios{
+                height: max-content;
+                margin: 0 0 10px;
+                padding: 10px 15px;
+            }   
+        }
+    }
+    &_socials {
+        margin-top: auto;
+        padding-top: 15px;
+        border-top: 1px solid $text;
+    }
+}
+
+.portfolios {
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    font-size: .8rem;
+    letter-spacing: .5px;
+    transition: height .3s, margin .3s;
+    &_link {
+        color: $text-faded;
+        transition: color .2s;
+        text-transform: uppercase;
+        border: none;
+        font-family: $sans-secondary;
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+.overlay {
+    position: fixed;
+    z-index: 90;
+    top: 0;
+    left: 0;
+    width: 100vh;
+    height: 100vh;
+    background-color: rgba($overlay, .7);
+    transition: all .3s;
+}
+
+.hidden {
+    display: none;
+    transition: all .3s;
+}

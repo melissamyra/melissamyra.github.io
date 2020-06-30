@@ -1,0 +1,44 @@
+.icon {
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    &_social {
+        width: 22px;
+        height: 22px;
+        fill: $nav-default;
+        transition: fill .3s;
+        margin: 0 5px;
+        &:hover {
+            fill: $primary;
+        }
+    }
+    &_menu {
+        fill: $primary;
+        width: 22px;
+        height: 22px;
+    }
+    &_close {
+        color: $nav-active;
+        width: 15px;
+        height: 15px;
+        position: fixed;
+        top: 1.5rem;
+        cursor: pointer;
+    }
+    &_skills {
+        &.adobe {
+            width: 35px;
+            height: 35px;
+            margin: 0 5px;
+        }
+        &.web {
+            width: 50px;
+            height: 50px;
+            margin: 0 2px;
+            &.html, &.css {
+                margin: 0 -5px;
+                width: 55px;
+                height: 55px;
+            }
+        }
+    }
+}

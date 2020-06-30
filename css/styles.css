@@ -1,0 +1,360 @@
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #fff;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #3a3a3a;
+  background-image: url(../images/owl.png);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 180%;
+  background-position: 65% 0%;
+  background-color: rgba(255, 255, 255, 0.199);
+  background-blend-mode: lighten;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  appearance: none;
+  background: none;
+  outline: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+h1, h2, h3 {
+  color: #dbbd7f;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+h1, h2 {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+h3 {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e6d2a7;
+  margin-bottom: 30px;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+main {
+  background-color: #fff;
+}
+
+header {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background: transparent;
+  grid-area: header;
+}
+header::after {
+  content: "";
+  display: block;
+  width: 20%;
+  margin: 0 auto 40px;
+  border-bottom: 4px solid #e6d2a7;
+}
+header span {
+  display: none;
+}
+header .container {
+  display: none;
+  padding: 1.2rem;
+  text-align: right;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.menu_mobile {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  padding: 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.menu_mobile h2 {
+  margin-top: -3px;
+  pointer-events: none;
+}
+
+nav a, nav label {
+  color: #e4e4e4;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 15px 0;
+  cursor: pointer;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #747474;
+}
+nav a:hover, nav label:hover {
+  color: #e0e0e0;
+}
+nav li {
+  list-style-type: none;
+  margin-bottom: 10px;
+  min-width: max-content;
+}
+
+#nav_mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #454545;
+  height: 100vh;
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+  padding: 4rem 0 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: width 0.5s, padding 0.5s;
+}
+#nav_home, #nav_portfolio, #nav_about, #nav_contact {
+  display: none;
+}
+#nav_portfolio:checked ~ label[for$=portfolio] {
+  border-bottom: transparent;
+  margin-bottom: 0;
+}
+#nav_portfolio:checked ~ a[href="#contact"] {
+  border-top: 1px solid #747474;
+}
+#nav_portfolio:checked ~ .portfolios {
+  height: max-content;
+  margin: 0 0 10px;
+  padding: 10px 15px;
+}
+#nav_socials {
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid #747474;
+}
+
+.portfolios {
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  transition: height 0.3s, margin 0.3s;
+}
+.portfolios_link {
+  color: #929292;
+  transition: color 0.2s;
+  text-transform: uppercase;
+  border: none;
+  font-family: "Poppins", sans-serif;
+}
+.portfolios_link:hover {
+  color: #dbbd7f;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 90;
+  top: 0;
+  left: 0;
+  width: 100vh;
+  height: 100vh;
+  background-color: rgba(69, 69, 69, 0.7);
+  transition: all 0.3s;
+}
+
+.hidden {
+  display: none;
+  transition: all 0.3s;
+}
+
+#portfolio {
+  text-align: center;
+  padding: 4rem 1rem;
+  grid-area: portfolio;
+}
+#portfolio_fewd {
+  background-color: #3a3a3a;
+  padding: 50px 30px;
+}
+
+.card_fewd {
+  filter: grayscale(0.9);
+  transition: filter 0.3s;
+}
+.card_fewd:hover {
+  filter: none;
+}
+.card_illus {
+  margin-bottom: 10px;
+}
+.card_fewd, .card_illus, .card_gd {
+  margin-bottom: 20px;
+}
+.card_fewd p, .card_illus p, .card_gd p {
+  display: none;
+}
+
+#about {
+  padding: 60px 0 0;
+  text-align: center;
+  grid-area: about;
+}
+#about p {
+  color: #747474;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  max-width: 430px;
+  padding: 0 30px;
+  margin: 0 auto 10px;
+  text-align: left;
+}
+#about strong {
+  color: #dbbd7f;
+  font-weight: 600;
+}
+#about strong.focus {
+  letter-spacing: 0.5px;
+}
+#about span {
+  font-size: 0.6rem;
+}
+
+#profile-img {
+  display: none;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto 20px;
+}
+@media (min-width: 768px) {
+  #profile-img {
+    margin: 0 0 30px;
+  }
+}
+@media (min-width: 1024px) {
+  #profile-img {
+    float: left;
+  }
+}
+
+#skills {
+  background-color: #3a3a3a;
+  background-image: url(../images/astronomy-dark.jpg);
+  background-size: 180%;
+  background-position: 10% 8%;
+  padding: 3.5rem 0;
+  margin-top: 3.5rem;
+}
+#skills p {
+  color: #dbbd7f;
+  text-align: center;
+  line-height: 1.8;
+  margin: 0 auto;
+}
+#skills .container {
+  padding: 2rem 0 0;
+}
+#skills .container_adobe {
+  margin-bottom: 5px;
+}
+
+footer {
+  text-align: center;
+  padding: 50px 0;
+  font-family: "Poppins", sans-serif;
+  background: #fff;
+  grid-area: footer;
+}
+footer p {
+  margin: 5px 0 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #929292;
+}
+
+.icon {
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+.icon_social {
+  width: 22px;
+  height: 22px;
+  fill: #e4e4e4;
+  transition: fill 0.3s;
+  margin: 0 5px;
+}
+.icon_social:hover {
+  fill: #dbbd7f;
+}
+.icon_menu {
+  fill: #dbbd7f;
+  width: 22px;
+  height: 22px;
+}
+.icon_close {
+  color: #fff;
+  width: 15px;
+  height: 15px;
+  position: fixed;
+  top: 1.5rem;
+  cursor: pointer;
+}
+.icon_skills.adobe {
+  width: 35px;
+  height: 35px;
+  margin: 0 5px;
+}
+.icon_skills.web {
+  width: 50px;
+  height: 50px;
+  margin: 0 2px;
+}
+.icon_skills.web.html, .icon_skills.web.css {
+  margin: 0 -5px;
+  width: 55px;
+  height: 55px;
+}
+
+/*# sourceMappingURL=styles.css.map */
