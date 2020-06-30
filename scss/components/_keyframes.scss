@@ -11,3 +11,27 @@
         transform: scale(1);
     }
 }
+
+@keyframes bgMove {
+    0% {
+        background-size: 180%;
+        background-position: 65% 0%;
+    }
+    40% {
+        background-size: 200%;
+        background-position: 55% 0%;
+    }
+    100% {
+        background-size: 180%;
+        background-position: 65% 0%;
+    }
+}
+
+@keyframes spin {
+    // 0% {
+    //     transform: rotate(0);
+    // }
+    100% {
+        transform: rotate(360deg);
+    }
+}

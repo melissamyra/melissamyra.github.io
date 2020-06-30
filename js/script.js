@@ -19,6 +19,13 @@ const navGD = document.getElementById('navGD');
 const navAbout = document.querySelector('a[href="#about"]');
 const portfolioLinks = document.querySelector('.portfolios');
 
+//date
+const date = new Date();
+const year = date.getFullYear();
+const siteYear = document.getElementById('year');
+//set year
+siteYear.textContent = year;
+
 //colour
 const dark = '#e4e4e4';
 
@@ -145,17 +152,19 @@ const closeOverlay = () => {
 
 const handlePortfolioEvents = e => {
     if (e.target === navFEWD ) {
-        insertPortfolio(fewdPortfolio, 'portfolio_fewd', 'fewd');
+        insertPortfolio(fewdPortfolio, 'portfolio_fewd', 'fewd', 'Front End Web Development Work');
     } else if (e.target === navILL ) {
-        insertPortfolio(illustrationPortfolio, 'portfolio_illus', 'illus');
+        insertPortfolio(illustrationPortfolio, 'portfolio_illus', 'illus', 'Illustration Work');
     } else if (e.target === navGD) {
-        insertPortfolio(gdPortfolio, 'portfolio_gd', 'gd');
+        insertPortfolio(gdPortfolio, 'portfolio_gd', 'gd', 'Visual Design Work');
     }
 };
 
-const insertPortfolio = (array, id, cardClass) => {
+const insertPortfolio = (array, id, cardClass, heading) => {
 
     portfolioSec.innerHTML = '';
+    portfolioHeading = document.createElement('H3');
+    portfolioHeading.textContent = heading;
 
     const section = document.createElement('DIV');
     section.id = id;
@@ -183,6 +192,7 @@ const insertPortfolio = (array, id, cardClass) => {
         index++;
     });
 
+    portfolioSec.appendChild(portfolioHeading);
     portfolioSec.appendChild(section);
 };
 
