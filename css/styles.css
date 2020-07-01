@@ -435,14 +435,45 @@ nav li {
   display: none;
 }
 .card_fewd {
-  padding-bottom: 15px;
-  border-bottom: 1px solid #3a3a3a;
+  position: relative;
+}
+.card_fewd::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(24, 24, 24, 0.658);
+  opacity: 0;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  transition: opacity 0.3s;
+}
+.card_fewd:hover::after {
+  opacity: 1;
 }
 .card_fewd img {
   border: 1px solid #3a3a3a;
+  pointer-events: none;
 }
-.card_fewd img:hover {
+.card_fewd .card-caption {
+  display: block;
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  font-size: 1.25rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  z-index: 55;
+  transition: visibility 0.2s;
+  visibility: hidden;
   cursor: pointer;
+}
+.card_fewd:hover .card-caption {
+  visibility: visible;
 }
 .card_illus {
   margin-bottom: 10px;

@@ -234,7 +234,7 @@ const insertPortfolio = (array, id, cardClass, heading) => {
         previewImg.setAttribute('src', project.img);
 
         previewCap.className = 'card-caption';
-        previewCap.innerHTML = project.title;
+        previewCap.innerHTML = 'view';
 
         previewContainer.appendChild(previewImg);
         previewContainer.appendChild(previewCap);
