@@ -1,22 +1,17 @@
 #about {
-    // border-top: 5px solid lighten($primary, 10%);
     padding: 3rem 0 0;
     text-align: center;
     background-color: $main;
-    // background-image: url(../images/astronomy-sun-gold.jpg);
     background-size: 200%;
     background-position: 20% 40%;
     @include grid(about);
     h2 {
-        // border-top: 15px solid $primary;
         padding-bottom: 5px;
         margin:  0 auto 1.5rem;
         border-radius: 2px;
         letter-spacing: 1.5px;
         width: max-content;
-        // max-width: 380px;
         border-bottom: 1px solid $primary;
-        // color: $dark;
         font-weight: 700;
         text-transform: uppercase;
     }
@@ -27,7 +22,6 @@
         margin: 0 auto 10px;
         text-align: left;
         &.last {
-            // border-bottom: 15px solid $dark;
             padding-bottom: 3.5rem;
             margin-bottom: 0;
         }
@@ -73,9 +67,5 @@
         &_adobe {
             margin-bottom: 5px;
         }
-        // padding: 0 3rem;
-        // display: flex;
-        // flex-wrap: wrap;
-        // justify-content: space-evenly;
     }
 }

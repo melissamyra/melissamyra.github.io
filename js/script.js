@@ -300,30 +300,3 @@ portfolioPreview.addEventListener('click', e => {
         window.scrollTo(0, 1200);
     }
 });
-
-// navFEWD.addEventListener('click', () => {
-//     insertPortfolio(fewdPortfolio, 'portfolio-fewd', 'fewd');
-// });
-
-// navILL.addEventListener('click', () => {
-//     insertPortfolio(illustrationPortfolio, 'portfolio-illus', 'illus');
-// });
-
-// navGD.addEventListener('click', () => {
-//     insertPortfolio(gdPortfolio, 'portfolio-gd', 'gd');
-// });
-
-
-// if (mqSmall.matches) {
-//     let prevScrollpos = window.pageYOffset;
-//     window.onscroll = () => {
-//     let currentScrollPos = window.pageYOffset;
-//     if (prevScrollpos > currentScrollPos) {
-//         document.querySelector('header::after').style.opacity = "1";
-//         console.log(document.querySelector('header::after'));
-//     } else {
-//         document.querySelector('header::after').style.opacity = "0";
-//     }
-//     prevScrollpos = currentScrollPos;
-//     }
-// }

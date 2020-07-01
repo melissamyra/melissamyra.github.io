@@ -4,9 +4,6 @@ footer {
     font-family: $sans;
     background: #fff;
     @include grid(footer);
-    // @include mq(768px) {
-    //     display: none;
-    // }
     p {
         margin: 5px 0 0;
         font-size: .75rem;
