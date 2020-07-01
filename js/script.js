@@ -1,5 +1,6 @@
 //media query
 const mqSmall = window.matchMedia('(max-width: 768px)');
+const mqMedUp = window.matchMedia('(min-width: 768px)');
 
 //DOM Elements
 const body = document.querySelector('body');
@@ -188,10 +189,32 @@ const handleNavEvents = e => {
     const home = 'Home';
     const about = 'About';
     const contact = 'Contact';
-    
+
     if (button === home || button === about || button === contact) {
         insertPortfolio(illustrationPortfolio, 'portfolio_illus', 'illus', 'Illustration Work');
         displayDefaultLayout();
+    }
+}
+
+//handle Medium - Large screens navigation clicks
+const handleMLScreenNavEvents = e => {
+    let button = e.target.textContent;
+    const home = 'Home';
+    const about = 'About';
+    const contact = 'Contact';
+    const fewd = 'Front End Web Dev';
+    const illus = 'Illustrations';
+    const gd = 'Graphic Design';
+
+    if (button === home) {
+        header.style.animation = 'show .5s forwards';
+        displayDefaultLayout();
+    } else if (button === about || button === contact || button === fewd || button === illus || button === gd) {
+        displayDefaultLayout();
+        header.style.animation = 'fade 1s forwards';
+        setTimeout(() => {
+            header.style.display = "none";
+        }, 500)
     }
 }
 
@@ -272,18 +295,28 @@ const displayCard = index => {
 //====================================================================
 //                        EVENT LISTENERS
 //====================================================================
-buttonMenuMobile.addEventListener('click', () => {
-    navMobile.style.width = '75vw';
-    navMobile.style.padding = '4rem 1.5rem 1rem';
-    overlay.classList.remove('hidden');
-});
 
-buttonMenuClose.addEventListener('click', closeOverlay);
-overlay.addEventListener('click',closeOverlay);
+if (mqSmall.matches) {
+    buttonMenuMobile.addEventListener('click', () => {
+        navMobile.style.width = '75vw';
+        navMobile.style.padding = '4rem 1.5rem 1rem';
+        overlay.classList.remove('hidden');
+    });
+    
+    buttonMenuClose.addEventListener('click', closeOverlay);
+    overlay.addEventListener('click',closeOverlay);
+
+    navMobile.addEventListener('click', handleNavEvents);
+
+    portfolioPreview.addEventListener('click', e => {
+        if (e.target.id === 'buttonBack') {
+            displayDefaultLayout();
+            portfolioSec.scrollIntoView();
+        }
+    });
+}
 
 portfolioLinks.addEventListener('click', handlePortfolioEvents);
-
-navMobile.addEventListener('click', handleNavEvents);
 
 portfolioSec.addEventListener('click', e => {
     if (e.target.parentNode.className === 'card_fewd') {
@@ -294,9 +327,39 @@ portfolioSec.addEventListener('click', e => {
     }
 });
 
-portfolioPreview.addEventListener('click', e => {
-    if (e.target.id === 'buttonBack') {
-        displayDefaultLayout();
-        window.scrollTo(0, 1200);
-    }
-});
+const isInView = element => {
+    let bounding = element.getBoundingClientRect();
+    return (
+        bounding.top >= 0 &&
+        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+    );
+};
+
+if (mqMedUp.matches) {
+    window.addEventListener('scroll', () => {
+        let viewportHeight = window.innerHeight;
+        const position = element => element.offsetTop;
+    
+        const bodyHeight = document.body.clientHeight;
+        const portfolioPos = position(portfolioSec) - 300;
+        const cards = document.querySelectorAll('[class^="card"]');
+        // if (isInView(portfolioSec)) {
+            // console.log(body.getBoundingClientRect());
+            if (window.pageYOffset >= portfolioPos) {
+                cards.forEach(card => card.style.animation = 'slide-up 1s forwards');
+            } else {
+                cards.forEach(card => card.style.animation = 'hide 1s forwards');
+            }
+        // }
+    });
+
+    navMobile.addEventListener('click', handleMLScreenNavEvents);
+
+    portfolioPreview.addEventListener('click', e => {
+        if (e.target.id === 'buttonBack') {
+            displayDefaultLayout();
+            header.style.display = 'none';
+            portfolioSec.scrollIntoView();
+        }
+    });
+}
