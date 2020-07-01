@@ -524,7 +524,8 @@ nav li {
     display: block;
     filter: grayscale(0.5);
     margin: 2rem auto;
-    max-width: 90%;
+    max-width: 95%;
+    border: 1px solid #151515;
   }
 }
 
@@ -618,10 +619,14 @@ nav li {
 #contact a {
   color: #dfbc77;
   text-decoration: underline;
+  transition: color 0.2s;
 }
 @media (min-width: 768px) {
   #contact a {
     color: #151515;
+  }
+  #contact a:hover {
+    color: #dfbc77;
   }
 }
 @media (min-width: 768px) {
@@ -650,6 +655,9 @@ nav li {
     font-weight: 800;
     margin: -3px auto 30px;
     padding: 0;
+  }
+  #contact a[href^=mail]:hover {
+    color: #dfbc77;
   }
 }
 #contact .container {

@@ -58,7 +58,8 @@
         display: block;
         filter: grayscale(.5);
         margin: 2rem auto;
-        max-width: 90%;
+        max-width: 95%;
+        border: 1px solid $dark;
     }
 }
 

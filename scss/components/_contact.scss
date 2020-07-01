@@ -39,8 +39,12 @@
     a {
         color: $primary;
         text-decoration: underline;
+        transition: color .2s;
         @include mq(768px) {
             color: $dark;
+            &:hover {
+                color: $primary;
+            }
         }
     }
     br {
@@ -67,6 +71,9 @@
             font-weight: 800;
             margin: -3px auto 30px;
             padding: 0;
+            &:hover {
+                color: $primary;
+            }
         }
     }
     .container {
