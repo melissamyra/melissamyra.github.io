@@ -8,12 +8,30 @@ header {
     justify-content: flex-end;
     background: transparent;
     @include grid(header);
+    @include mq(768px) {
+        background-color: $main;
+        position: fixed;
+        z-index: 1000;
+        width: calc(100vw - 230px);
+        top: 0;
+        right: 0;
+    }
     &::after {
         content: '';
         display: block;
         width: 20%;
         margin: 0 auto 40px;
         border-bottom: 4px solid lighten($primary, 10%);
+        @include mq(768px) {
+            display: none;
+            // border: none;
+            // width: 50%;
+            // height: 50%;
+            // background-image: url(../images/sun-gold.png);
+            // background-repeat: no-repeat;
+            // background-size: contain;
+            // animation: spin 120s linear infinite;
+        }
     }
     span {
         display: none;

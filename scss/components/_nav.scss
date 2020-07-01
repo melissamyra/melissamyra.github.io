@@ -10,6 +10,9 @@
         flex-direction: row;
         justify-content: space-between;
         background-color: $main;
+        @include mq(768px) {
+            display: none;
+        }
         h2 {
             margin-top: -3px;
             pointer-events: none;
@@ -19,16 +22,27 @@
 
 nav {
     a,label {
+        font-family: $sans-secondary;
         color: $nav-default;
         text-transform: uppercase;
-        font-size: .80rem;
+        font-size: .8rem;
         font-weight: 500;
         padding: 15px 0;
         cursor: pointer;
         letter-spacing: 1px;
         border-bottom: 1px solid $text;
+        @include mq(768px) {
+            border: none;
+            padding: 10px 0;
+            color: $secondary;
+            font-size: .75rem;
+            font-weight: 600;
+        }
             &:hover {
                 color: $text-hover;
+                @include mq(768px) {
+                    color: $primary;
+                }
             }
         }
         a[class^="social"] {
@@ -58,6 +72,13 @@ nav {
         left: 0;
         z-index: 100;
         transition: width .5s, padding .5s;
+        @include grid(nav);
+        @include mq(768px) {
+            display: flex;
+            width: max-content;
+            padding: 6rem 2rem 2rem;
+            background-color: transparent;
+        }
     }
     &_home, &_portfolio, &_about, &_contact { //checkbox input
         display: none;
@@ -73,12 +94,19 @@ nav {
             &~ a {
                 &[href="#contact"] {
                     border-top: 1px solid $text;
+                    @include mq(768px) {
+                        border: none;
+                    }
                 }
             }
             &~ .portfolios{
-                height: max-content;
+                max-height: 100px;
                 margin: 0 0 10px;
                 padding: 10px 15px;
+                @include mq(768px) {
+                    margin: 0;
+                    padding: 10px 15px 0;
+                }
             }   
         }
     }
@@ -86,23 +114,27 @@ nav {
         margin-top: auto;
         padding-top: 15px;
         border-top: 1px solid $text;
+        @include mq(768px) {
+            border: none;
+        }
     }
 }
 
 .portfolios {
-    height: 0;
+    max-height: 0;
     overflow: hidden;
-    padding: 0;
+    padding: 0 15px;
     margin: 0;
     font-size: .8rem;
     letter-spacing: .5px;
-    transition: height .3s, margin .3s;
+    transition: all .3s;
     &_link {
         color: $text-faded;
         transition: color .2s;
         text-transform: uppercase;
         border: none;
         font-family: $sans-secondary;
+        font-weight: 500;
         &:hover {
             color: $primary;
         }

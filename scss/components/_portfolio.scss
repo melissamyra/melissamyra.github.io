@@ -3,16 +3,16 @@
 //==========================================================
 #portfolio {
     text-align: center;
-    padding: 3rem 1rem;
+    padding: 3rem 1.5rem;
     @include grid(portfolio);
     h3 {
         color: $secondary;
         border-color: $secondary;
     }
-    &_fewd {
-        background-color: darken($secondary, 10%);
-        padding: 50px 30px;
-    }
+    // &_fewd {
+        // background-color: darken($secondary, 10%);
+        // padding: 50px 10px;
+    // }
     &_preview {
         padding: 2rem;
         img {
@@ -51,6 +51,10 @@
 .card {
     &_fewd, &_illus, &_gd {
         margin-bottom: 30px;
+        @include mq(768px) {
+            opacity: 0;
+            animation: slide-up 1s forwards;
+        }
         img {
             filter: grayscale(.6);
             transition: filter .3s;
@@ -63,9 +67,10 @@
         }
     }
     &_fewd {
+        padding-bottom: 15px;
+        border-bottom: 1px solid $secondary;
         img {
-            padding-bottom: 15px;
-            border-bottom: 2px solid $text-light;
+            border: 1px solid $secondary;
             &:hover {
                 cursor: pointer;
             }

@@ -1,0 +1,13 @@
+.grid {
+    &_main {
+        @include mq(768px) {
+            display: grid;
+            grid-template-columns: 230px 1fr;
+            grid-template-areas: 
+                'nav loading'
+                'nav header'
+                'nav main'
+                'nav footer';
+        }
+    }
+}

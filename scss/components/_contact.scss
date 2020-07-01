@@ -3,6 +3,9 @@
     position: relative;
     max-height: 300px;
     overflow: hidden;
+    @include mq(768px) {
+        // display: none;
+    }
     img {
         width: 130%;
         animation: spin 120s linear infinite;
