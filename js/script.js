@@ -3,14 +3,19 @@ const mqSmall = window.matchMedia('(max-width: 768px)');
 
 //DOM Elements
 const body = document.querySelector('body');
+const header = document.querySelector('header');
 const main = document.querySelector('main');
+const about = document.getElementById('about');
+const contact = document.getElementById('contact');
 const footer = document.querySelector('footer');
+const portfolioSec = document.getElementById('portfolio');
+const portfolioPreview = document.getElementById('portfolio_preview');
+
+//mobile layouts
 const buttonMenuMobile = document.getElementById('buttonMenuMobile');
 const buttonMenuClose = document.getElementById('button_close');
 const navMobile = document.getElementById('nav_mobile');
 const overlay = document.querySelector('.overlay');
-const portfolioSec = document.getElementById('portfolio');
-const aboutSec = document.getElementById('about');
 
 //nav links
 const navFEWD = document.getElementById('navFEWD');
@@ -26,35 +31,39 @@ const siteYear = document.getElementById('year');
 //set year
 siteYear.textContent = year;
 
-//colour
-const dark = '#e4e4e4';
+//====================================================================
+//                               DATA
+//====================================================================
 
 // portfolio links
 const fewdPortfolio = [
     {
-        title: 'Online Registration Form',
-        link: 'https://melissamyra.github.io/techdegree-project-3/',
-        img: 'images/fewd/online-res-form.png'
-    },
-    {
         title: 'Interactive Photo Gallery',
         link: 'https://melissamyra.github.io/techdegree-project-5/',
-        img: 'images/fewd/interactive-photo-gallery.png'
+        repo: 'https://github.com/melissamyra/techdegree-project-5',
+        img: 'images/fewd/interactive-photo-gallery.png',
+        description: 'An interactive photo gallery built with JavaScript and jQuery, with a lightbox plugin and functioning search bar.'
     },
     {
         title: 'Phrase Guessing Game',
         link: 'https://melissamyra.github.io/techdegree-project-6/',
-        img: 'images/fewd/guessing-game.png'
+        repo: 'https://github.com/melissamyra/techdegree-project-6',
+        img: 'images/fewd/guessing-game.png',
+        description: 'A random phrase guessing game built with vanilla JavaScript for desktop screens.'
     },
     {
         title: 'WebApp Dashboard',
         link: 'https://melissamyra.github.io/techdegree-project-7/',
-        img: 'images/fewd/webapp-dashboard.png'
+        repo: 'https://github.com/melissamyra/techdegree-project-7',
+        img: 'images/fewd/webapp-dashboard.png',
+        description: 'A mobile-responsive mockup web-stats dashboard demo built with CSS Grid Layout and JavaScript. Includes interactive charts made with Chart.js library.'
     },
     {
         title: 'Employee Directory',
         link: 'https://melissamyra.github.io/techdegree-project-8/',
-        img: 'images/fewd/employee-directory.png'
+        repo: 'https://github.com/melissamyra/techdegree-project-8',
+        img: 'images/fewd/employee-directory.png',
+        description: 'A mobile-responsive mockup employee directory demo that uses Fetch API to generate data for 12 random employees. Includes functioning search bar, interactive pop up overlay, and features a night mode.'
     }
 ];
 
@@ -144,12 +153,25 @@ const gdPortfolio = [
 //                             FUNCTIONS
 //====================================================================
 
+//close navigation overlay
 const closeOverlay = () => {
     navMobile.style.width = '';
     navMobile.style.padding = '';
     overlay.classList.add('hidden');
 };
 
+//display default home page
+const displayDefaultLayout = () => {
+    portfolioPreview.style.display = "none";
+    portfolioSec.style.display = "";
+    header.style.display = "";
+    about.style.display = "";
+    contact.style.display = "";
+
+    main.style.marginTop = '';
+}
+
+//handle portfolio navigation events
 const handlePortfolioEvents = e => {
     if (e.target === navFEWD ) {
         insertPortfolio(fewdPortfolio, 'portfolio_fewd', 'fewd', 'Front End Web Development Work');
@@ -160,6 +182,20 @@ const handlePortfolioEvents = e => {
     }
 };
 
+//handle navigation clicks
+const handleNavEvents = e => {
+    let button = e.target.textContent;
+    const home = 'Home';
+    const about = 'About';
+    const contact = 'Contact';
+    
+    if (button === home || button === about || button === contact) {
+        insertPortfolio(illustrationPortfolio, 'portfolio_illus', 'illus', 'Illustration Work');
+        displayDefaultLayout();
+    }
+}
+
+//insert portfolio images into portfolio section
 const insertPortfolio = (array, id, cardClass, heading) => {
 
     portfolioSec.innerHTML = '';
@@ -194,8 +230,44 @@ const insertPortfolio = (array, id, cardClass, heading) => {
 
     portfolioSec.appendChild(portfolioHeading);
     portfolioSec.appendChild(section);
+
+    portfolioPreview.style.display = "none";
+    portfolioSec.style.display = "";
+    header.style.display = "";
+    about.style.display = "";
+    contact.style.display = "";
+
+    main.style.marginTop = '';
 };
 
+//display FEWD project data
+const displayCard = index => {
+    let info = fewdPortfolio[index];
+    
+    portfolioPreview.innerHTML = '';
+
+    const cardInfo = `
+            <h4>${info.title}</h4>
+            <p>${info.description}</p>
+            <img src="${info.img}" alt="${info.title}">
+            <div class="container">
+                <button id="buttonBack">Back</button>
+                <button><a href="${info.link}" target="_blank">See Demo</a></button>
+                <button><a href="${info.repo}" target="_blank">View Repo</a></button>
+            </div>
+        `;
+
+    portfolioSec.style.display = "none";
+    header.style.display = "none";
+    about.style.display = "none";
+    contact.style.display = "none";
+
+    main.style.marginTop = '73px';
+
+    portfolioPreview.innerHTML = cardInfo;
+    portfolioPreview.style.display = "";
+
+};
 
 //====================================================================
 //                        EVENT LISTENERS
@@ -210,6 +282,24 @@ buttonMenuClose.addEventListener('click', closeOverlay);
 overlay.addEventListener('click',closeOverlay);
 
 portfolioLinks.addEventListener('click', handlePortfolioEvents);
+
+navMobile.addEventListener('click', handleNavEvents);
+
+portfolioSec.addEventListener('click', e => {
+    if (e.target.parentNode.className === 'card_fewd') {
+        const card = e.target.closest(".card_fewd");
+        const index = card.getAttribute('data-index');
+        displayCard(index);
+        window.scrollTo(0, 0);
+    }
+});
+
+portfolioPreview.addEventListener('click', e => {
+    if (e.target.id === 'buttonBack') {
+        displayDefaultLayout();
+        window.scrollTo(0, 1200);
+    }
+});
 
 // navFEWD.addEventListener('click', () => {
 //     insertPortfolio(fewdPortfolio, 'portfolio-fewd', 'fewd');
