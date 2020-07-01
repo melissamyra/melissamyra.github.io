@@ -5,6 +5,9 @@
     text-align: center;
     padding: 3rem 1.5rem;
     @include grid(portfolio);
+    @include mq(768px) {
+        padding: 4rem 1.5rem;
+    }
     h3 {
         color: $secondary;
         border-color: $secondary;
@@ -15,26 +18,30 @@
     // }
     &_preview {
         padding: 2rem;
+        // display: none;
         img {
             border: 1px solid $text-light;
             margin-bottom: 2rem;
+            filter: grayscale(.7);
+            transition: filter .3s;
+            &:hover {
+                filter: none;
+            }
         }
         h4, p {
             text-align: left;
         }
         h4 {
-            margin-bottom: .6rem;
+            margin-bottom: 1rem;
         }
         p {
-            max-width: 350px;
+            max-width: 500px;
             margin: 0 0 20px;
+            line-height: 1.4;
         }
         a {
             color: $dark;
             border-bottom: .5px solid $dark;
-        }
-        button {
-            display: inline-block;
             font-size: .85rem;
             &:nth-child(2) {
                 margin-right: 10px;
@@ -56,7 +63,7 @@
             animation: slide-up 1s forwards;
         }
         img {
-            filter: grayscale(.6);
+            filter: grayscale(.7);
             transition: filter .3s;
             &:hover {
                 filter: none;

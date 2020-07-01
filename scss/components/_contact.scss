@@ -4,24 +4,49 @@
     max-height: 300px;
     overflow: hidden;
     @include mq(768px) {
-        // display: none;
+        padding: 1.5rem;
+        background-color: transparent;
     }
     img {
         width: 130%;
         animation: spin 120s linear infinite;
+        @include mq(768px) {
+            display: none;
+        }
     }
     h3 {
         margin: 0 auto 30px;
+        @include mq(768px) {
+            display: block;
+            width: max-content;
+            border-width: 2px;
+            font-weight: 800;
+            color: $dark;
+            border-color: $dark;
+        }
     }
     p {
         color: $primary;
         line-height: 1.5;
         width: max-content;
         margin: 0 auto 10px;
+        @include mq(768px) {
+            display: inline;
+            font-weight: 600;
+            color: $dark;
+        }
     }
     a {
         color: $primary;
         text-decoration: underline;
+        @include mq(768px) {
+            color: $dark;
+        }
+    }
+    br {
+        @include mq(768px) {
+            display: none;
+        }
     }
     a[href^="mail"] {
         color: $dark;
@@ -34,6 +59,15 @@
         display: block;
         width: min-content;
         margin: 10px auto 20px;
+        @include mq(768px) {
+            color: $dark;
+            background-color: transparent;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            font-weight: 800;
+            margin: -3px auto 30px;
+            padding: 0;
+        }
     }
     .container {
         position: absolute;
@@ -43,5 +77,11 @@
         height: 100%;
         padding: 3.5rem 2rem;
         text-align: center;
+        @include mq(768px) {
+            position: initial;
+            // top: 0;
+            // left: 0;
+            padding: 0;
+        }
     }
 }

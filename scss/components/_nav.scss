@@ -31,11 +31,11 @@ nav {
         cursor: pointer;
         letter-spacing: 1px;
         border-bottom: 1px solid $text;
+        transition: color .2s;
         @include mq(768px) {
             border: none;
             padding: 10px 0;
             color: $secondary;
-            font-size: .75rem;
             font-weight: 600;
         }
             &:hover {
@@ -70,14 +70,18 @@ nav {
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 100;
+        z-index: 1000;
         transition: width .5s, padding .5s;
         @include grid(nav);
         @include mq(768px) {
             display: flex;
-            width: max-content;
+            width: 230px;
             padding: 6rem 2rem 2rem;
             background-color: transparent;
+        }
+        @include mq(1024px) {
+            position: sticky;
+            position: -webkit-sticky; /* Safari */
         }
     }
     &_home, &_portfolio, &_about, &_contact { //checkbox input

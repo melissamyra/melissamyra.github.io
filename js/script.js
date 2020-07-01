@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 //media query
 const mqSmall = window.matchMedia('(max-width: 768px)');
 const mqMedUp = window.matchMedia('(min-width: 768px)');
@@ -8,7 +10,6 @@ const header = document.querySelector('header');
 const main = document.querySelector('main');
 const about = document.getElementById('about');
 const contact = document.getElementById('contact');
-const footer = document.querySelector('footer');
 const portfolioSec = document.getElementById('portfolio');
 const portfolioPreview = document.getElementById('portfolio_preview');
 
@@ -22,7 +23,6 @@ const overlay = document.querySelector('.overlay');
 const navFEWD = document.getElementById('navFEWD');
 const navILL = document.getElementById('navILL');
 const navGD = document.getElementById('navGD');
-const navAbout = document.querySelector('a[href="#about"]');
 const portfolioLinks = document.querySelector('.portfolios');
 
 //date
@@ -43,28 +43,28 @@ const fewdPortfolio = [
         link: 'https://melissamyra.github.io/techdegree-project-5/',
         repo: 'https://github.com/melissamyra/techdegree-project-5',
         img: 'images/fewd/interactive-photo-gallery.png',
-        description: 'An interactive photo gallery built with JavaScript and jQuery, with a lightbox plugin and functioning search bar.'
+        description: 'An interactive photo gallery built with <strong>CSS Flexbox</strong> and <strong>jQuery</strong>, with a lightbox plugin and functioning search bar.'
     },
     {
         title: 'Phrase Guessing Game',
         link: 'https://melissamyra.github.io/techdegree-project-6/',
         repo: 'https://github.com/melissamyra/techdegree-project-6',
         img: 'images/fewd/guessing-game.png',
-        description: 'A random phrase guessing game built with vanilla JavaScript for desktop screens.'
+        description: 'A random phrase guessing game built with vanilla <strong>JavaScript</strong>, made for desktop screens.'
     },
     {
         title: 'WebApp Dashboard',
         link: 'https://melissamyra.github.io/techdegree-project-7/',
         repo: 'https://github.com/melissamyra/techdegree-project-7',
         img: 'images/fewd/webapp-dashboard.png',
-        description: 'A mobile-responsive mockup web-stats dashboard demo built with CSS Grid Layout and JavaScript. Includes interactive charts made with Chart.js library.'
+        description: 'A mobile-responsive mockup web-stats dashboard demo built with <strong>CSS Grid Layout</strong> and <strong>JavaScript</strong> functionality. Interactivity includes notifications, alerts and saving settings to local storage, also uses interactive charts from <strong>Chart.js library</strong>.'
     },
     {
         title: 'Employee Directory',
         link: 'https://melissamyra.github.io/techdegree-project-8/',
         repo: 'https://github.com/melissamyra/techdegree-project-8',
         img: 'images/fewd/employee-directory.png',
-        description: 'A mobile-responsive mockup employee directory demo that uses Fetch API to generate data for 12 random employees. Includes functioning search bar, interactive pop up overlay, and features a night mode.'
+        description: 'A mobile-responsive mockup employee directory demo that uses <strong>Fetch API</strong> to fetch data from Random User Generator API for 12 fictional employees. Includes functioning search bar, a pop up overlay that allows user to navigate left and right, and features a <strong>night mode.</strong>'
     }
 ];
 
@@ -103,11 +103,6 @@ const illustrationPortfolio = [
         title: 'Ink Owl Illustration',
         img: 'images/illustration/ink-owl.jpg',
         description: 'Fantasy Ink Illustration of an owl'
-    },
-    {
-        title: 'Graphite Bird Illustration',
-        img: 'images/illustration/bird.jpg',
-        description: 'Graphite Illustration of a small bird'
     }
 ];
 
@@ -170,7 +165,7 @@ const displayDefaultLayout = () => {
     contact.style.display = "";
 
     main.style.marginTop = '';
-}
+};
 
 //handle portfolio navigation events
 const handlePortfolioEvents = e => {
@@ -194,7 +189,7 @@ const handleNavEvents = e => {
         insertPortfolio(illustrationPortfolio, 'portfolio_illus', 'illus', 'Illustration Work');
         displayDefaultLayout();
     }
-}
+};
 
 //handle Medium - Large screens navigation clicks
 const handleMLScreenNavEvents = e => {
@@ -207,23 +202,20 @@ const handleMLScreenNavEvents = e => {
     const gd = 'Graphic Design';
 
     if (button === home) {
-        header.style.animation = 'show .5s forwards';
         displayDefaultLayout();
+        body.style.backgroundColor = '';
     } else if (button === about || button === contact || button === fewd || button === illus || button === gd) {
         displayDefaultLayout();
-        header.style.animation = 'fade 1s forwards';
-        setTimeout(() => {
-            header.style.display = "none";
-        }, 500)
     }
-}
+};
 
 //insert portfolio images into portfolio section
 const insertPortfolio = (array, id, cardClass, heading) => {
 
     portfolioSec.innerHTML = '';
-    portfolioHeading = document.createElement('H3');
+    let portfolioHeading = document.createElement('H3');
     portfolioHeading.textContent = heading;
+    portfolioHeading.id = 'portfolio_heading';
 
     const section = document.createElement('DIV');
     section.id = id;
@@ -261,6 +253,8 @@ const insertPortfolio = (array, id, cardClass, heading) => {
     contact.style.display = "";
 
     main.style.marginTop = '';
+
+    document.getElementById('portfolio_heading').scrollIntoView();
 };
 
 //display FEWD project data
@@ -275,8 +269,8 @@ const displayCard = index => {
             <img src="${info.img}" alt="${info.title}">
             <div class="container">
                 <button id="buttonBack">Back</button>
-                <button><a href="${info.link}" target="_blank">See Demo</a></button>
-                <button><a href="${info.repo}" target="_blank">View Repo</a></button>
+                <a href="${info.link}" target="_blank">See Demo</a>
+                <a href="${info.repo}" target="_blank">View Repo</a>
             </div>
         `;
 
@@ -323,34 +317,35 @@ portfolioSec.addEventListener('click', e => {
         const card = e.target.closest(".card_fewd");
         const index = card.getAttribute('data-index');
         displayCard(index);
-        window.scrollTo(0, 0);
+        body.scrollIntoView();
     }
 });
 
-const isInView = element => {
-    let bounding = element.getBoundingClientRect();
-    return (
-        bounding.top >= 0 &&
-        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-    );
-};
-
 if (mqMedUp.matches) {
     window.addEventListener('scroll', () => {
-        let viewportHeight = window.innerHeight;
         const position = element => element.offsetTop;
     
-        const bodyHeight = document.body.clientHeight;
-        const portfolioPos = position(portfolioSec) - 300;
         const cards = document.querySelectorAll('[class^="card"]');
-        // if (isInView(portfolioSec)) {
-            // console.log(body.getBoundingClientRect());
+        const heading = document.getElementById('portfolio_heading');
+        const contact = document.getElementById('contact');
+        const portfolioPos = position(portfolioSec) - 500;
+        const aboutPos = position(about) - 800;
+        const contactPos = position(contact) - 2000;
+        
             if (window.pageYOffset >= portfolioPos) {
                 cards.forEach(card => card.style.animation = 'slide-up 1s forwards');
+                heading.style.animation = 'slide-up 1s forwards';
             } else {
                 cards.forEach(card => card.style.animation = 'hide 1s forwards');
+                heading.style.animation = 'hide 1s forwards';
             }
-        // }
+
+            if (window.pageYOffset >= aboutPos) {
+                body.style.backgroundColor = '#fff';
+            } else {
+                body.style.backgroundColor = '';
+            }
+
     });
 
     navMobile.addEventListener('click', handleMLScreenNavEvents);

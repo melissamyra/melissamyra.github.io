@@ -9,12 +9,11 @@ header {
     background: transparent;
     @include grid(header);
     @include mq(768px) {
-        background-color: $main;
-        position: fixed;
-        z-index: 1000;
-        width: calc(100vw - 230px);
-        top: 0;
-        right: 0;
+        // position: fixed;
+        // z-index: 100;
+        // width: 100vw;
+        // top: 0;
+        // right: 0;
     }
     &::after {
         content: '';

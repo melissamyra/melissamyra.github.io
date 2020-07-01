@@ -2,8 +2,11 @@ footer {
     text-align: center;
     padding: 50px 0 40px;
     font-family: $sans;
-    background: #fff;
+    background-color: $main;
     @include grid(footer);
+    @include mq(768px) {
+        background-color: transparent;
+    }
     p {
         margin: 5px 0 0;
         font-size: .65rem;

@@ -94,7 +94,9 @@ body {
 }
 @media (min-width: 768px) {
   body {
+    background-color: #151515;
     background-image: none;
+    transition: background-color 0.8s;
   }
 }
 
@@ -107,6 +109,12 @@ p {
   line-height: 1.2;
   font-weight: 500;
 }
+@media (min-width: 768px) {
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
 
 button {
   appearance: none;
@@ -118,7 +126,7 @@ button {
 }
 
 h1, h2, h3 {
-  color: #dbbd7f;
+  color: #dfbc77;
   letter-spacing: 1px;
   margin: 0;
 }
@@ -133,9 +141,13 @@ h3 {
   text-transform: uppercase;
   font-size: 0.8rem;
   padding: 0 0 5px;
-  border-bottom: 1px solid #e6d2a7;
+  border-bottom: 1px solid #e9d0a0;
   margin-bottom: 30px;
   max-width: 180px;
+}
+
+h4 {
+  font-weight: 700;
 }
 
 img {
@@ -151,6 +163,7 @@ main {
 @media (min-width: 768px) {
   main {
     padding: 0 2rem;
+    background-color: transparent;
   }
 }
 
@@ -162,22 +175,12 @@ header {
   background: transparent;
   grid-area: header;
 }
-@media (min-width: 768px) {
-  header {
-    background-color: #fff;
-    position: fixed;
-    z-index: 1000;
-    width: calc(100vw - 230px);
-    top: 0;
-    right: 0;
-  }
-}
 header::after {
   content: "";
   display: block;
   width: 20%;
   margin: 0 auto 40px;
-  border-bottom: 4px solid #e6d2a7;
+  border-bottom: 4px solid #e9d0a0;
 }
 @media (min-width: 768px) {
   header::after {
@@ -228,13 +231,13 @@ nav a, nav label {
   cursor: pointer;
   letter-spacing: 1px;
   border-bottom: 1px solid #747474;
+  transition: color 0.2s;
 }
 @media (min-width: 768px) {
   nav a, nav label {
     border: none;
     padding: 10px 0;
     color: #3a3a3a;
-    font-size: 0.75rem;
     font-weight: 600;
   }
 }
@@ -243,7 +246,7 @@ nav a:hover, nav label:hover {
 }
 @media (min-width: 768px) {
   nav a:hover, nav label:hover {
-    color: #dbbd7f;
+    color: #dfbc77;
   }
 }
 nav a[class^=social] {
@@ -268,16 +271,23 @@ nav li {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 1000;
   transition: width 0.5s, padding 0.5s;
   grid-area: nav;
 }
 @media (min-width: 768px) {
   #nav_mobile {
     display: flex;
-    width: max-content;
+    width: 230px;
     padding: 6rem 2rem 2rem;
     background-color: transparent;
+  }
+}
+@media (min-width: 1024px) {
+  #nav_mobile {
+    position: sticky;
+    position: -webkit-sticky;
+    /* Safari */
   }
 }
 #nav_home, #nav_portfolio, #nav_about, #nav_contact {
@@ -335,7 +345,7 @@ nav li {
   font-weight: 500;
 }
 .portfolios_link:hover {
-  color: #dbbd7f;
+  color: #dfbc77;
 }
 
 .overlay {
@@ -359,6 +369,11 @@ nav li {
   padding: 3rem 1.5rem;
   grid-area: portfolio;
 }
+@media (min-width: 768px) {
+  #portfolio {
+    padding: 4rem 1.5rem;
+  }
+}
 #portfolio h3 {
   color: #3a3a3a;
   border-color: #3a3a3a;
@@ -369,26 +384,29 @@ nav li {
 #portfolio_preview img {
   border: 1px solid #cecece;
   margin-bottom: 2rem;
+  filter: grayscale(0.7);
+  transition: filter 0.3s;
+}
+#portfolio_preview img:hover {
+  filter: none;
 }
 #portfolio_preview h4, #portfolio_preview p {
   text-align: left;
 }
 #portfolio_preview h4 {
-  margin-bottom: 0.6rem;
+  margin-bottom: 1rem;
 }
 #portfolio_preview p {
-  max-width: 350px;
+  max-width: 500px;
   margin: 0 0 20px;
+  line-height: 1.4;
 }
 #portfolio_preview a {
   color: #151515;
   border-bottom: 0.5px solid #151515;
-}
-#portfolio_preview button {
-  display: inline-block;
   font-size: 0.85rem;
 }
-#portfolio_preview button:nth-child(2) {
+#portfolio_preview a:nth-child(2) {
   margin-right: 10px;
 }
 #portfolio_preview .container {
@@ -407,7 +425,7 @@ nav li {
   }
 }
 .card_fewd img, .card_illus img, .card_gd img {
-  filter: grayscale(0.6);
+  filter: grayscale(0.7);
   transition: filter 0.3s;
 }
 .card_fewd img:hover, .card_illus img:hover, .card_gd img:hover {
@@ -431,7 +449,7 @@ nav li {
 }
 
 #buttonBack {
-  color: #dbbd7f;
+  color: #dfbc77;
   font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
@@ -448,7 +466,8 @@ nav li {
 }
 @media (min-width: 768px) {
   #about {
-    padding: 8rem 0 0;
+    padding: 8rem 1.5rem 0;
+    background-color: transparent;
   }
 }
 #about h2 {
@@ -457,7 +476,7 @@ nav li {
   border-radius: 2px;
   letter-spacing: 1.5px;
   width: max-content;
-  border-bottom: 1px solid #dbbd7f;
+  border-bottom: 1px solid #dfbc77;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -470,8 +489,9 @@ nav li {
 }
 @media (min-width: 768px) {
   #about p {
-    margin: 0;
+    margin: 0 0 10px;
     padding: 0;
+    max-width: max-content;
   }
 }
 #about p.last {
@@ -480,11 +500,13 @@ nav li {
 }
 @media (min-width: 768px) {
   #about p.last {
-    padding-bottom: 6rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 2px solid #dfbc77;
+    margin-bottom: 3rem;
   }
 }
 #about strong {
-  color: #dbbd7f;
+  color: #dfbc77;
   font-weight: 700;
   letter-spacing: 0.5px;
 }
@@ -495,18 +517,14 @@ nav li {
 #profile-img {
   display: none;
   width: 100%;
-  max-width: 430px;
   margin: 0 auto 20px;
 }
 @media (min-width: 768px) {
   #profile-img {
     display: block;
-    margin: 0 0 30px;
-  }
-}
-@media (min-width: 1024px) {
-  #profile-img {
-    float: left;
+    filter: grayscale(0.5);
+    margin: 2rem auto;
+    max-width: 90%;
   }
 }
 
@@ -519,11 +537,29 @@ nav li {
   margin-top: 0;
   animation: slide-up 0.5s forwards;
 }
+@media (min-width: 768px) {
+  #skills {
+    padding: 2.5rem 3.5rem;
+    margin: 0 auto;
+    background-position: 10% 5%;
+    background-size: 130%;
+  }
+}
 #skills p {
-  color: #dbbd7f;
+  color: #dfbc77;
   text-align: center;
   line-height: 1.5;
   margin: 0 auto;
+}
+@media (min-width: 768px) {
+  #skills p {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 768px) {
+  #skills h3 {
+    display: none;
+  }
 }
 #skills .container {
   padding: 2rem 0 0;
@@ -538,26 +574,64 @@ nav li {
   max-height: 300px;
   overflow: hidden;
 }
+@media (min-width: 768px) {
+  #contact {
+    padding: 1.5rem;
+    background-color: transparent;
+  }
+}
 #contact img {
   width: 130%;
   animation: spin 120s linear infinite;
 }
+@media (min-width: 768px) {
+  #contact img {
+    display: none;
+  }
+}
 #contact h3 {
   margin: 0 auto 30px;
 }
+@media (min-width: 768px) {
+  #contact h3 {
+    display: block;
+    width: max-content;
+    border-width: 2px;
+    font-weight: 800;
+    color: #151515;
+    border-color: #151515;
+  }
+}
 #contact p {
-  color: #dbbd7f;
+  color: #dfbc77;
   line-height: 1.5;
   width: max-content;
   margin: 0 auto 10px;
 }
+@media (min-width: 768px) {
+  #contact p {
+    display: inline;
+    font-weight: 600;
+    color: #151515;
+  }
+}
 #contact a {
-  color: #dbbd7f;
+  color: #dfbc77;
   text-decoration: underline;
+}
+@media (min-width: 768px) {
+  #contact a {
+    color: #151515;
+  }
+}
+@media (min-width: 768px) {
+  #contact br {
+    display: none;
+  }
 }
 #contact a[href^=mail] {
   color: #151515;
-  background-color: #dbbd7f;
+  background-color: #dfbc77;
   font-weight: 700;
   font-size: 0.8rem;
   font-style: italic;
@@ -566,6 +640,17 @@ nav li {
   display: block;
   width: min-content;
   margin: 10px auto 20px;
+}
+@media (min-width: 768px) {
+  #contact a[href^=mail] {
+    color: #151515;
+    background-color: transparent;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 800;
+    margin: -3px auto 30px;
+    padding: 0;
+  }
 }
 #contact .container {
   position: absolute;
@@ -576,13 +661,24 @@ nav li {
   padding: 3.5rem 2rem;
   text-align: center;
 }
+@media (min-width: 768px) {
+  #contact .container {
+    position: initial;
+    padding: 0;
+  }
+}
 
 footer {
   text-align: center;
   padding: 50px 0 40px;
   font-family: "Muli", sans-serif;
-  background: #fff;
+  background-color: #fff;
   grid-area: footer;
+}
+@media (min-width: 768px) {
+  footer {
+    background-color: transparent;
+  }
 }
 footer p {
   margin: 5px 0 0;
@@ -609,7 +705,7 @@ footer p {
   }
 }
 .icon_social:hover {
-  fill: #dbbd7f;
+  fill: #dfbc77;
 }
 .icon_social.email {
   width: 18px;
@@ -618,7 +714,7 @@ footer p {
   margin-right: 9px;
 }
 .icon_menu {
-  fill: #dbbd7f;
+  fill: #dfbc77;
   width: 22px;
   height: 22px;
 }
@@ -640,20 +736,42 @@ footer p {
   height: 35px;
   margin: 0 5px;
 }
+@media (min-width: 768px) {
+  .icon_skills.adobe {
+    width: 45px;
+    height: 45px;
+    margin: 0 6px;
+  }
+}
 .icon_skills.web {
   width: 50px;
   height: 50px;
   margin: 0 2px;
+}
+@media (min-width: 768px) {
+  .icon_skills.web {
+    width: 60px;
+    height: 60px;
+    margin: 0 2px;
+  }
 }
 .icon_skills.web.html, .icon_skills.web.css {
   margin: 0 -5px;
   width: 55px;
   height: 55px;
 }
+@media (min-width: 768px) {
+  .icon_skills.web.html, .icon_skills.web.css {
+    width: 70px;
+    height: 70px;
+    margin: 0 -8px;
+    transform: translateY(5px);
+  }
+}
 .icon_contact {
   width: 30px;
   height: 30px;
-  fill: #dbbd7f;
+  fill: #dfbc77;
   margin: 0 3px;
 }
 .icon_sun {
@@ -672,6 +790,17 @@ footer p {
     display: grid;
     grid-template-columns: 230px 1fr;
     grid-template-areas: "nav loading" "nav header" "nav main" "nav footer";
+  }
+}
+@media (min-width: 1024px) {
+  .grid_main {
+    -webkit-transform: translateZ(0);
+  }
+}
+@media (min-width: 1024px) {
+  .grid_main {
+    max-width: 900px;
+    margin: 0 auto;
   }
 }
 
