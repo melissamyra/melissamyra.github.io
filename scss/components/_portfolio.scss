@@ -13,30 +13,77 @@
         background-color: darken($secondary, 10%);
         padding: 50px 30px;
     }
+    &_preview {
+        padding: 2rem;
+        // text-align: center;
+        img {
+            border: 1px solid $text-light;
+            margin-bottom: 2rem;
+        }
+        h4, p {
+            text-align: left;
+        }
+        h4 {
+            margin-bottom: .6rem;
+        }
+        p {
+            // padding: 0 10px;
+            max-width: 350px;
+            margin: 0 0 20px;
+        }
+        a {
+            color: $dark;
+            border-bottom: .5px solid $dark;
+        }
+        button {
+            display: inline-block;
+            font-size: .85rem;
+            &:nth-child(2) {
+                margin-right: 10px;
+            }
+        }
+        .container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
 }
 
 .card {
-    &_fewd {
-        // filter: grayscale(.9);
-        // transition: filter .3s;
-        // &:hover {
-        //     filter: none;
-        // }
-    }
-    &_illus {
-        margin-bottom: 10px;
-    }
     &_fewd, &_illus, &_gd {
-        margin-bottom: 20px;
-        filter: grayscale(.6);
-        transition: filter .3s;
-        &:hover {
-            filter: none;
+        margin-bottom: 30px;
+        img {
+            filter: grayscale(.6);
+            transition: filter .3s;
+            &:hover {
+                filter: none;
+            }
         }
         p {
             display: none;
         }
     }
+    &_fewd {
+        img {
+            padding-bottom: 15px;
+            border-bottom: 2px solid $text-light;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    &_illus {
+        margin-bottom: 10px;
+    }
+}
+
+#buttonBack {
+    color: $primary;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-right: auto;
 }
 
 //     &-illus,&-gd,&-fewd {

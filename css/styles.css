@@ -40,7 +40,7 @@ html {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Muli", sans-serif;
   color: #3a3a3a;
   background-image: url(../images/owl.png);
   background-attachment: fixed;
@@ -49,7 +49,6 @@ body {
   background-position: 65% 0%;
   background-color: rgba(255, 255, 255, 0.199);
   background-blend-mode: lighten;
-  animation: bgMove 10s infinite;
 }
 
 a {
@@ -58,7 +57,8 @@ a {
 
 p {
   font-size: 0.85rem;
-  line-height: 1.5;
+  line-height: 1.2;
+  font-weight: 500;
 }
 
 button {
@@ -84,11 +84,11 @@ h1, h2 {
 h3 {
   display: inline-block;
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   padding: 0 0 5px;
   border-bottom: 1px solid #e6d2a7;
   margin-bottom: 30px;
-  max-width: 160px;
+  max-width: 180px;
 }
 
 img {
@@ -98,6 +98,7 @@ img {
 
 main {
   background-color: #fff;
+  min-height: calc(100vh);
 }
 
 header {
@@ -252,27 +253,76 @@ nav li {
   background-color: #212121;
   padding: 50px 30px;
 }
-
-.card_illus {
-  margin-bottom: 10px;
+#portfolio_preview {
+  padding: 2rem;
 }
+#portfolio_preview img {
+  border: 1px solid #cecece;
+  margin-bottom: 2rem;
+}
+#portfolio_preview h4, #portfolio_preview p {
+  text-align: left;
+}
+#portfolio_preview h4 {
+  margin-bottom: 0.6rem;
+}
+#portfolio_preview p {
+  max-width: 350px;
+  margin: 0 0 20px;
+}
+#portfolio_preview a {
+  color: #151515;
+  border-bottom: 0.5px solid #151515;
+}
+#portfolio_preview button {
+  display: inline-block;
+  font-size: 0.85rem;
+}
+#portfolio_preview button:nth-child(2) {
+  margin-right: 10px;
+}
+#portfolio_preview .container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .card_fewd, .card_illus, .card_gd {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+}
+.card_fewd img, .card_illus img, .card_gd img {
   filter: grayscale(0.6);
   transition: filter 0.3s;
 }
-.card_fewd:hover, .card_illus:hover, .card_gd:hover {
+.card_fewd img:hover, .card_illus img:hover, .card_gd img:hover {
   filter: none;
 }
 .card_fewd p, .card_illus p, .card_gd p {
   display: none;
 }
+.card_fewd img {
+  padding-bottom: 15px;
+  border-bottom: 2px solid #cecece;
+}
+.card_fewd img:hover {
+  cursor: pointer;
+}
+.card_illus {
+  margin-bottom: 10px;
+}
+
+#buttonBack {
+  color: #dbbd7f;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-right: auto;
+}
 
 #about {
   padding: 3rem 0 0;
   text-align: center;
-  background-color: #dbbd7f;
-  background-image: url(../images/astronomy-sun-gold.jpg);
+  background-color: #fff;
   background-size: 200%;
   background-position: 20% 40%;
   grid-area: about;
@@ -283,24 +333,24 @@ nav li {
   border-radius: 2px;
   letter-spacing: 1.5px;
   width: max-content;
-  border-bottom: 1px solid #151515;
-  color: #151515;
+  border-bottom: 1px solid #dbbd7f;
   font-weight: 700;
   text-transform: uppercase;
 }
 #about p {
-  color: #151515;
-  max-width: 430px;
-  padding: 0 30px;
+  color: #747474;
+  max-width: 380px;
+  padding: 0 40px;
   margin: 0 auto 10px;
+  text-align: left;
 }
 #about p.last {
   padding-bottom: 3.5rem;
   margin-bottom: 0;
 }
 #about strong {
-  color: #151515;
-  font-weight: 600;
+  color: #dbbd7f;
+  font-weight: 700;
   letter-spacing: 0.5px;
 }
 #about span {
@@ -335,7 +385,7 @@ nav li {
 #skills p {
   color: #dbbd7f;
   text-align: center;
-  line-height: 1.8;
+  line-height: 1.5;
   margin: 0 auto;
 }
 #skills .container {
@@ -348,7 +398,7 @@ nav li {
 #contact {
   background-color: #151515;
   position: relative;
-  max-height: 360px;
+  max-height: 300px;
   overflow: hidden;
 }
 #contact img {
@@ -360,24 +410,25 @@ nav li {
 }
 #contact p {
   color: #dbbd7f;
-  line-height: 1.8;
+  line-height: 1.5;
   width: max-content;
   margin: 0 auto 10px;
 }
-#contact p:nth-of-type(2) {
-  border-bottom: 1px solid #dbbd7f;
+#contact a {
+  color: #dbbd7f;
+  text-decoration: underline;
 }
 #contact a[href^=mail] {
   color: #151515;
   background-color: #dbbd7f;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-style: italic;
   letter-spacing: 0.5px;
   padding: 5px 10px;
   display: block;
   width: min-content;
-  margin: 10px auto 40px;
+  margin: 10px auto 20px;
 }
 #contact .container {
   position: absolute;
@@ -392,7 +443,7 @@ nav li {
 footer {
   text-align: center;
   padding: 50px 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Muli", sans-serif;
   background: #fff;
   grid-area: footer;
 }

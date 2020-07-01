@@ -1,7 +1,7 @@
 #contact {
     background-color: $dark;
     position: relative;
-    max-height: 360px;
+    max-height: 300px;
     overflow: hidden;
     img {
         width: 130%;
@@ -15,24 +15,28 @@
     }
     p {
         color: $primary;
-        line-height: 1.8;
+        line-height: 1.5;
         width: max-content;
         margin: 0 auto 10px;
-        &:nth-of-type(2) {
-            border-bottom: 1px solid $primary;
-        }
+        // &:nth-of-type(2) {
+        //     border-bottom: 1px solid $primary;
+        // }
+    }
+    a {
+        color: $primary;
+        text-decoration: underline;
     }
     a[href^="mail"] {
         color: $dark;
         background-color: $primary;
         font-weight: 700;
-        font-size: .9rem;
+        font-size: .8rem;
         font-style: italic;
         letter-spacing: .5px;
         padding: 5px 10px;
         display: block;
         width: min-content;
-        margin: 10px auto 40px;
+        margin: 10px auto 20px;
     }
     .container {
         position: absolute;
