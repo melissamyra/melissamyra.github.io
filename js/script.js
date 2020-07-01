@@ -327,10 +327,8 @@ if (mqMedUp.matches) {
     
         const cards = document.querySelectorAll('[class^="card"]');
         const heading = document.getElementById('portfolio_heading');
-        const contact = document.getElementById('contact');
         const portfolioPos = position(portfolioSec) - 500;
         const aboutPos = position(about) - 800;
-        const contactPos = position(contact) - 2000;
         
             if (window.pageYOffset >= portfolioPos) {
                 cards.forEach(card => card.style.animation = 'slide-up 1s forwards');
