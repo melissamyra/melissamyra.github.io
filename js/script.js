@@ -156,6 +156,30 @@ const gdPortfolio = [
 //                             FUNCTIONS
 //====================================================================
 
+//=========================================================== Helpers
+
+//hide element
+const hide = element => {
+    element.style.display = 'none';
+};
+
+//set default element display
+const setDefaultDisplay = element => {
+    element.style.display = '';
+};
+
+//set element background colour
+const setBGcolour = (element, color) => {
+    element.style.backgroundColor = color;
+};
+
+//set element animation
+const animate = (element, animation) => {
+    element.style.animation = animation;
+};
+
+//====================================================================
+
 //close navigation overlay
 const closeOverlay = () => {
     navMobile.style.width = '';
@@ -165,11 +189,11 @@ const closeOverlay = () => {
 
 //display default home page
 const displayDefaultLayout = () => {
-    portfolioPreview.style.display = "none";
-    portfolioSec.style.display = "";
-    header.style.display = "";
-    about.style.display = "";
-    contact.style.display = "";
+    hide(portfolioPreview);
+    setDefaultDisplay(portfolioSec);
+    setDefaultDisplay(header);
+    setDefaultDisplay(about);
+    setDefaultDisplay(contact);
 
     main.style.marginTop = '';
 };
@@ -214,7 +238,7 @@ const handleMLScreenNavEvents = e => {
 
     if (button === home) {
         displayDefaultLayout();
-        body.style.backgroundColor = '';
+        setBGcolour(body, '');
     } else if (button === about || button === contact || button === fewd || button === illus || button === gd) {
         displayDefaultLayout();
     }
@@ -257,11 +281,11 @@ const insertPortfolio = (array, id, cardClass, heading) => {
     portfolioSec.appendChild(portfolioHeading);
     portfolioSec.appendChild(section);
 
-    portfolioPreview.style.display = "none";
-    portfolioSec.style.display = "";
-    header.style.display = "";
-    about.style.display = "";
-    contact.style.display = "";
+    hide(portfolioPreview);
+    setDefaultDisplay(portfolioSec);
+    setDefaultDisplay(header);
+    setDefaultDisplay(about);
+    setDefaultDisplay(contact);
 
     main.style.marginTop = '';
 
@@ -285,15 +309,15 @@ const displayCard = index => {
             </div>
         `;
 
-    portfolioSec.style.display = "none";
-    header.style.display = "none";
-    about.style.display = "none";
-    contact.style.display = "none";
+    hide(portfolioSec);
+    hide(header);
+    hide(about);
+    hide(contact);
 
     main.style.marginTop = '73px';
 
     portfolioPreview.innerHTML = cardInfo;
-    portfolioPreview.style.display = "";
+    setDefaultDisplay(portfolioPreview);
 
 };
 
@@ -351,17 +375,17 @@ if (mqMedUp.matches) {
         const aboutPos = position(about) - 800;
         
             if (window.pageYOffset >= portfolioPos) {
-                cards.forEach(card => card.style.animation = 'slide-up 1s forwards');
-                heading.style.animation = 'slide-up 1s forwards';
+                cards.forEach(card => animate(card, 'slide-up 1s forwards'));
+                animate(heading, 'slide-up 1s forwards');
             } else {
-                cards.forEach(card => card.style.animation = 'hide 1s forwards');
-                heading.style.animation = 'hide 1s forwards';
+                cards.forEach(card => animate(card, 'hide 1s forwards'));
+                animate(heading, 'hide 1s forwards');
             }
 
             if (window.pageYOffset >= aboutPos) {
-                body.style.backgroundColor = '#fff';
+                setBGcolour(body, '#fff');
             } else {
-                body.style.backgroundColor = '';
+                setBGcolour(body, '');
             }
 
     });
@@ -371,7 +395,6 @@ if (mqMedUp.matches) {
     portfolioPreview.addEventListener('click', e => {
         if (e.target.id === 'buttonBack') {
             displayDefaultLayout();
-            header.style.display = 'none';
             portfolioSec.scrollIntoView();
         }
     });
