@@ -9,6 +9,7 @@ const body = document.querySelector('body');
 const header = document.querySelector('header');
 const main = document.querySelector('main');
 const about = document.getElementById('about');
+const skills = document.getElementById('skills');
 const contact = document.getElementById('contact');
 const portfolioSec = document.getElementById('portfolio');
 const portfolioPreview = document.getElementById('portfolio_preview');
@@ -42,28 +43,28 @@ const fewdPortfolio = [
         title: 'Interactive Photo Gallery',
         link: 'https://melissamyra.github.io/techdegree-project-5/',
         repo: 'https://github.com/melissamyra/techdegree-project-5',
-        img: 'images/fewd/interactive-photo-gallery.png',
+        img: 'images/fewd/interactive-photo-gallery-min.png',
         description: 'An interactive photo gallery built with <strong>CSS Flexbox</strong> and <strong>jQuery</strong>, with a lightbox plugin and functioning search bar.'
     },
     {
         title: 'Phrase Guessing Game',
         link: 'https://melissamyra.github.io/techdegree-project-6/',
         repo: 'https://github.com/melissamyra/techdegree-project-6',
-        img: 'images/fewd/guessing-game.png',
+        img: 'images/fewd/guessing-game-min.png',
         description: 'A random phrase guessing game built with vanilla <strong>JavaScript</strong>, made for desktop screens.'
     },
     {
         title: 'WebApp Dashboard',
         link: 'https://melissamyra.github.io/techdegree-project-7/',
         repo: 'https://github.com/melissamyra/techdegree-project-7',
-        img: 'images/fewd/webapp-dashboard.png',
+        img: 'images/fewd/webapp-dashboard-min.png',
         description: 'A mobile-responsive mockup web-stats dashboard demo built with <strong>CSS Grid Layout</strong> and <strong>JavaScript</strong> functionality. Interactivity includes notifications, alerts and saving settings to local storage, also uses interactive charts from <strong>Chart.js library</strong>.'
     },
     {
         title: 'Employee Directory',
         link: 'https://melissamyra.github.io/techdegree-project-8/',
         repo: 'https://github.com/melissamyra/techdegree-project-8',
-        img: 'images/fewd/employee-directory.png',
+        img: 'images/fewd/employee-directory-min.png',
         description: 'A mobile-responsive mockup employee directory demo that uses <strong>Fetch API</strong> to fetch data from Random User Generator API for 12 fictional employees. Includes functioning search bar, a pop up overlay that allows user to navigate left and right, and features a <strong>night mode.</strong>'
     }
 ];
@@ -109,39 +110,39 @@ const illustrationPortfolio = [
 const gdPortfolio = [
     {
         title: 'Lemon Boy Poster',
-        img: 'images/graphic-design/lemon-boy.png'
+        img: 'images/graphic-design/lemon-boy-min.png'
     },
     {
         title: 'Gallery Exhibition Poster',
-        img: 'images/graphic-design/poster.png'
+        img: 'images/graphic-design/poster-min.png'
     },
     {
         title: 'Cacto Logo',
-        img: 'images/graphic-design/cacto.png'
+        img: 'images/graphic-design/cacto-min.png'
     },
     {
         title: 'Pomade Packaging Design',
-        img: 'images/graphic-design/nb-pomade.jpg'
+        img: 'images/graphic-design/nb-pomade-min.jpg'
     },
     {
         title: 'Wall Banner',
-        img: 'images/graphic-design/globorneo.png'
+        img: 'images/graphic-design/globorneo-min.png'
     },
     {
         title: 'Limkokwing Booklet Cover',
-        img: 'images/graphic-design/lkw.jpg'
+        img: 'images/graphic-design/lkw-min.jpg'
     },
     {
         title: 'Macam-Macam Logo',
-        img: 'images/graphic-design/macam-macam.png'
+        img: 'images/graphic-design/macam-macam-min.png'
     },
     {
         title: 'Forum Belia Tegas event T-shirt Design',
-        img: 'images/graphic-design/fbt-shirts.png'
+        img: 'images/graphic-design/fbt-shirts-min.png'
     },
     {
         title: 'Forum Belia Tegas Merchandise',
-        img: 'images/graphic-design/fbt.png'
+        img: 'images/graphic-design/fbt-min.png'
     }
 ];
 
@@ -291,8 +292,17 @@ const displayCard = index => {
 };
 
 //====================================================================
-//                        EVENT LISTENERS
+//                        EVENTS & LISTENERS
 //====================================================================
+
+window.addEventListener('load', () => {
+    if (location.hash) {
+        setTimeout(function() {
+      
+          window.scrollTo(0, 0);
+        }, 1);
+      }
+});
 
 if (mqSmall.matches) {
     buttonMenuMobile.addEventListener('click', () => {
@@ -333,6 +343,7 @@ if (mqMedUp.matches) {
         const heading = document.getElementById('portfolio_heading');
         const portfolioPos = position(portfolioSec) - 500;
         const aboutPos = position(about) - 800;
+        const skillsPos = position(skills) - 800;
         
             if (window.pageYOffset >= portfolioPos) {
                 cards.forEach(card => card.style.animation = 'slide-up 1s forwards');
