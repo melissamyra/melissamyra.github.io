@@ -86,8 +86,6 @@
         text-align: center;
         @include mq(768px) {
             position: initial;
-            // top: 0;
-            // left: 0;
             padding: 0;
         }
     }

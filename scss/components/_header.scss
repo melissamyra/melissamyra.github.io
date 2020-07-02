@@ -9,11 +9,6 @@ header {
     background: transparent;
     @include grid(header);
     @include mq(768px) {
-        // position: fixed;
-        // z-index: 100;
-        // width: 100vw;
-        // top: 0;
-        // right: 0;
     }
     &::after {
         content: '';
@@ -23,13 +18,6 @@ header {
         border-bottom: 4px solid lighten($primary, 10%);
         @include mq(768px) {
             display: none;
-            // border: none;
-            // width: 50%;
-            // height: 50%;
-            // background-image: url(../images/sun-gold.png);
-            // background-repeat: no-repeat;
-            // background-size: contain;
-            // animation: spin 120s linear infinite;
         }
     }
     span {

@@ -12,13 +12,8 @@
         color: $secondary;
         border-color: $secondary;
     }
-    // &_fewd {
-        // background-color: darken($secondary, 10%);
-        // padding: 50px 10px;
-    // }
     &_preview {
         padding: 2rem;
-        // display: none;
         img {
             border: 1px solid $text-light;
             margin-bottom: 2rem;

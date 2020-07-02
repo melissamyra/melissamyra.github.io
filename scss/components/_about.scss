@@ -56,9 +56,8 @@
     margin: 0 auto 20px;
     @include mq(768px) {
         display: block;
-        filter: grayscale(.7);
+        filter: grayscale(.6);
         margin: 2rem auto;
-        // max-width: 95%;
         border: 1px solid $dark;
     }
 }
@@ -73,7 +72,6 @@
     animation: slide-up .5s forwards;
     @include mq(768px) {
         padding: 2.5rem 3.5rem;
-        // border-radius: 5px;
         margin: 0 auto;
         background-position: 10% 5%;
         background-size: 130%;
