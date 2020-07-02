@@ -1,5 +1,5 @@
 #about {
-    padding: 3rem 0 0;
+    padding: 0;
     text-align: center;
     background-color: $main;
     background-size: 200%;
@@ -51,12 +51,12 @@
 }
 
 #profile-img {
-    display: none;
+    // display: none;
+    filter: grayscale(.6);
     width: 100%;
-    margin: 0 auto 20px;
+    margin: 0 auto 3.5rem;
     @include mq(768px) {
         display: block;
-        filter: grayscale(.6);
         margin: 2rem auto;
         border: 1px solid $dark;
     }
