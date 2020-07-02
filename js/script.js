@@ -9,7 +9,6 @@ const body = document.querySelector('body');
 const header = document.querySelector('header');
 const main = document.querySelector('main');
 const about = document.getElementById('about');
-const skills = document.getElementById('skills');
 const contact = document.getElementById('contact');
 const portfolioSec = document.getElementById('portfolio');
 const portfolioPreview = document.getElementById('portfolio_preview');
