@@ -42,6 +42,7 @@ const fewdPortfolio = [
     {
         title: 'Online Registration Form',
         link: 'https://melissamyra.github.io/techdegree-project-3/',
+        repo: 'https://github.com/melissamyra/techdegree-project-3',
         img: 'images/fewd/online-res-form-min.png',
         description: 'An mobile-responsive registration form built with <strong>CSS</strong> and <strong>HTML5 form elements</strong>.'
     },
