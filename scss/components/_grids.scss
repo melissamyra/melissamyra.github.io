@@ -10,9 +10,6 @@
                 'nav footer';
         }
         @include mq(1024px) {
-            -webkit-transform: translateZ(0);
-        }
-        @include mq(1024px) {
             max-width: 900px;
             margin: 0 auto;
         }

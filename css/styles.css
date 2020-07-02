@@ -837,11 +837,6 @@ footer p {
 }
 @media (min-width: 1024px) {
   .grid_main {
-    -webkit-transform: translateZ(0);
-  }
-}
-@media (min-width: 1024px) {
-  .grid_main {
     max-width: 900px;
     margin: 0 auto;
   }
