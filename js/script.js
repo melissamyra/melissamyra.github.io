@@ -40,6 +40,12 @@ siteYear.textContent = year;
 // portfolio links
 const fewdPortfolio = [
     {
+        title: 'Online Registration Form',
+        link: 'https://melissamyra.github.io/techdegree-project-3/',
+        img: 'images/fewd/online-res-form.png',
+        description: 'An mobile-responsive registration form built with <strong>CSS</strong> and <strong>HTML5 form elements</strong>.'
+    },
+    {
         title: 'Interactive Photo Gallery',
         link: 'https://melissamyra.github.io/techdegree-project-5/',
         repo: 'https://github.com/melissamyra/techdegree-project-5',
@@ -343,7 +349,6 @@ if (mqMedUp.matches) {
         const heading = document.getElementById('portfolio_heading');
         const portfolioPos = position(portfolioSec) - 500;
         const aboutPos = position(about) - 800;
-        const skillsPos = position(skills) - 800;
         
             if (window.pageYOffset >= portfolioPos) {
                 cards.forEach(card => card.style.animation = 'slide-up 1s forwards');
