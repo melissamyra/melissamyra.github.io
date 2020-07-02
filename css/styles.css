@@ -74,7 +74,6 @@ html {
   background-color: #fff;
   scroll-behavior: smooth;
   -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 ::-webkit-scrollbar {
