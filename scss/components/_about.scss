@@ -56,9 +56,9 @@
     margin: 0 auto 20px;
     @include mq(768px) {
         display: block;
-        filter: grayscale(.5);
+        filter: grayscale(.7);
         margin: 2rem auto;
-        max-width: 95%;
+        // max-width: 95%;
         border: 1px solid $dark;
     }
 }

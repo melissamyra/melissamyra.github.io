@@ -557,9 +557,8 @@ nav li {
 @media (min-width: 768px) {
   #profile-img {
     display: block;
-    filter: grayscale(0.5);
+    filter: grayscale(0.7);
     margin: 2rem auto;
-    max-width: 95%;
     border: 1px solid #151515;
   }
 }
