@@ -189,6 +189,10 @@ const handleNavEvents = e => {
         insertPortfolio(illustrationPortfolio, 'portfolio_illus', 'illus', 'Illustration Work');
         displayDefaultLayout();
     }
+
+    if (e.target !== navMobile && button !== 'Portfolio' && e.target.id !== 'nav_portfolio' && e.target.id !== 'nav_socials') {
+        closeOverlay();
+    }
 };
 
 //handle Medium - Large screens navigation clicks
