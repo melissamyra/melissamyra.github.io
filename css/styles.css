@@ -83,7 +83,7 @@ html {
 body {
   font-family: "Muli", sans-serif;
   color: #3a3a3a;
-  background-image: url(../images/owl.png);
+  background-image: url(../images/owl-min.png);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 180%;
@@ -565,7 +565,7 @@ nav li {
 
 #skills {
   background-color: #3a3a3a;
-  background-image: url(../images/astronomy-dark.jpg);
+  background-image: url(../images/astronomy-dark-min.jpg);
   background-size: 180%;
   background-position: 10% 8%;
   padding: 3.5rem 0;
