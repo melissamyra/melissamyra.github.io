@@ -105,12 +105,13 @@ a {
 
 p {
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.4;
   font-weight: 500;
 }
 @media (min-width: 768px) {
   p {
     font-size: 1rem;
+    line-height: 1.5;
   }
 }
 
@@ -598,6 +599,7 @@ nav li {
 @media (min-width: 768px) {
   #skills p {
     font-size: 1rem;
+    line-height: 1.6;
   }
 }
 @media (min-width: 768px) {
