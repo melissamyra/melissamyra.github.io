@@ -35,11 +35,10 @@ a {
 
 p {
     font-size: .95rem;
-    line-height: 1.2;
+    line-height: 1.5;
     font-weight: 500;
     @include mq(768px) {
         font-size: 1rem;
-        line-height: 1.5;
     }
 }
 

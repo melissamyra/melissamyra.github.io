@@ -136,6 +136,9 @@ nav {
     font-size: .8rem;
     letter-spacing: .5px;
     transition: all .3s;
+    @include mq(768px) {
+        padding: 0 15px;
+    }
     &_link {
         margin: 0;
         padding: 15px 0;

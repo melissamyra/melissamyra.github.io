@@ -105,13 +105,12 @@ a {
 
 p {
   font-size: 0.95rem;
-  line-height: 1.2;
+  line-height: 1.5;
   font-weight: 500;
 }
 @media (min-width: 768px) {
   p {
     font-size: 1rem;
-    line-height: 1.5;
   }
 }
 
@@ -338,6 +337,11 @@ nav li {
   font-size: 0.8rem;
   letter-spacing: 0.5px;
   transition: all 0.3s;
+}
+@media (min-width: 768px) {
+  .portfolios {
+    padding: 0 15px;
+  }
 }
 .portfolios_link {
   margin: 0;
