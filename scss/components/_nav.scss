@@ -107,7 +107,7 @@ nav {
                 }
             }
             &~ .portfolios{
-                max-height: 100px;
+                max-height: 200px;
                 margin: 0 0 10px;
                 padding: 10px 20px;
                 @include mq(768px) {
@@ -137,6 +137,8 @@ nav {
     letter-spacing: .5px;
     transition: all .3s;
     &_link {
+        margin: 0;
+        padding: 15px 0;
         color: $text-faded;
         transition: color .2s;
         text-transform: uppercase;

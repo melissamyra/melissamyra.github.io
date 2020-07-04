@@ -6,7 +6,7 @@
         height: 28px;
         fill: $nav-default;
         transition: fill .2s;
-        margin: 0 3px;
+        margin: 0 5px;
         border: none;
         @include mq(768px) {
             fill: $secondary;
