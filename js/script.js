@@ -356,7 +356,7 @@ portfolioSec.addEventListener('click', e => {
         displayCard(index);
         
         if (mqSmall.matches) {
-            window.scrollTo(0,0);
+            window.scrollTo(0,50);
         } else if (mqMedUp.matches) {
             body.scrollIntoView();
         }
