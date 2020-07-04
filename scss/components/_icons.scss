@@ -10,6 +10,8 @@
         border: none;
         @include mq(768px) {
             fill: $secondary;
+            width: 25px;
+            height: 25px;
         }
         &:hover {
             fill: $primary;
@@ -19,6 +21,10 @@
             height: 21px;
             transform: translateY(-4px);
             margin-right: 9px;
+            @include mq(768px) {
+                width: 19px;
+                height: 19px;
+            }
         }
     }
     &_menu {

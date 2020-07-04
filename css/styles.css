@@ -753,6 +753,8 @@ footer p {
 @media (min-width: 768px) {
   .icon_social {
     fill: #3a3a3a;
+    width: 25px;
+    height: 25px;
   }
 }
 .icon_social:hover {
@@ -763,6 +765,12 @@ footer p {
   height: 21px;
   transform: translateY(-4px);
   margin-right: 9px;
+}
+@media (min-width: 768px) {
+  .icon_social.email {
+    width: 19px;
+    height: 19px;
+  }
 }
 .icon_menu {
   fill: #dfbc77;
