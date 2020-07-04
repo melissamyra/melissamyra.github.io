@@ -501,6 +501,7 @@ nav li {
 #buttonBack {
   color: #dfbc77;
   font-weight: 700;
+  font-size: 0.9rem;
   text-transform: uppercase;
   text-decoration: none;
   margin-right: auto;
