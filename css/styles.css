@@ -217,6 +217,7 @@ header .container {
 }
 .menu_mobile h2 {
   pointer-events: none;
+  letter-spacing: 0.5px;
 }
 
 nav a, nav label {
