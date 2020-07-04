@@ -104,7 +104,7 @@ a {
 }
 
 p {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   line-height: 1.2;
   font-weight: 500;
 }
@@ -203,7 +203,7 @@ header .container {
   z-index: 10;
   top: 0;
   left: 0;
-  padding: 1.5rem;
+  padding: 1rem 1.2rem;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -216,7 +216,6 @@ header .container {
   }
 }
 .menu_mobile h2 {
-  margin-top: -3px;
   pointer-events: none;
 }
 
@@ -226,7 +225,7 @@ nav a, nav label {
   text-transform: uppercase;
   font-size: 0.8rem;
   font-weight: 500;
-  padding: 15px 0;
+  padding: 18px 0;
   cursor: pointer;
   letter-spacing: 1px;
   border-bottom: 1px solid #747474;
@@ -251,10 +250,14 @@ nav a:hover, nav label:hover {
 nav a[class^=social] {
   border: none;
 }
+nav a[href="#home"] {
+  margin-top: 2rem;
+}
 nav li {
   list-style-type: none;
   margin-bottom: 10px;
   min-width: max-content;
+  padding: 2px 0;
 }
 
 #nav_mobile {
@@ -264,21 +267,21 @@ nav li {
   background-color: #454545;
   height: 100vh;
   width: 0;
-  padding: 0;
   overflow: hidden;
-  padding: 4rem 0 1rem;
+  padding: 2rem 0 1rem;
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 1000;
   transition: width 0.5s, padding 0.5s;
   grid-area: nav;
 }
 @media (min-width: 768px) {
   #nav_mobile {
+    left: 0;
     display: flex;
     width: 230px;
-    padding: 6rem 2rem 2rem;
+    padding: 2rem 2rem 2rem;
     background-color: transparent;
   }
 }
@@ -307,7 +310,7 @@ nav li {
 #nav_portfolio:checked ~ .portfolios {
   max-height: 100px;
   margin: 0 0 10px;
-  padding: 10px 15px;
+  padding: 10px 20px;
 }
 @media (min-width: 768px) {
   #nav_portfolio:checked ~ .portfolios {
@@ -316,6 +319,7 @@ nav li {
   }
 }
 #nav_socials {
+  text-align: right;
   margin-top: auto;
   padding-top: 15px;
   border-top: 1px solid #747474;
@@ -329,7 +333,7 @@ nav li {
 .portfolios {
   max-height: 0;
   overflow: hidden;
-  padding: 0 15px;
+  padding: 0 20px;
   margin: 0;
   font-size: 0.8rem;
   letter-spacing: 0.5px;
@@ -519,7 +523,7 @@ nav li {
   color: #151515;
   max-width: 380px;
   padding: 0 40px;
-  margin: 0 auto 10px;
+  margin: 0 auto 20px;
   text-align: left;
 }
 @media (min-width: 768px) {
@@ -733,8 +737,8 @@ footer p {
   transform-box: fill-box;
 }
 .icon_social {
-  width: 25px;
-  height: 25px;
+  width: 28px;
+  height: 28px;
   fill: #e4e4e4;
   transition: fill 0.2s;
   margin: 0 3px;
@@ -749,8 +753,8 @@ footer p {
   fill: #dfbc77;
 }
 .icon_social.email {
-  width: 18px;
-  height: 18px;
+  width: 21px;
+  height: 21px;
   transform: translateY(-4px);
   margin-right: 9px;
 }
@@ -763,8 +767,7 @@ footer p {
   color: #fff;
   width: 15px;
   height: 15px;
-  position: fixed;
-  top: 1.5rem;
+  align-self: flex-end;
   cursor: pointer;
 }
 @media (min-width: 768px) {

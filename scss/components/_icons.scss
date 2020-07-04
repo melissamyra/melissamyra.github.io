@@ -2,8 +2,8 @@
     transform-origin: 50% 50%;
     transform-box: fill-box;
     &_social {
-        width: 25px;
-        height: 25px;
+        width: 28px;
+        height: 28px;
         fill: $nav-default;
         transition: fill .2s;
         margin: 0 3px;
@@ -15,8 +15,8 @@
             fill: $primary;
         }
         &.email {
-            width: 18px;
-            height: 18px;
+            width: 21px;
+            height: 21px;
             transform: translateY(-4px);
             margin-right: 9px;
         }
@@ -30,8 +30,7 @@
         color: $nav-active;
         width: 15px;
         height: 15px;
-        position: fixed;
-        top: 1.5rem;
+        align-self: flex-end;
         cursor: pointer;
         @include mq(768px) {
             display: none;

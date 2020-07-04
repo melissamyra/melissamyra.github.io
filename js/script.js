@@ -330,7 +330,7 @@ window.addEventListener('load', () => {
 if (mqSmall.matches) {
     buttonMenuMobile.addEventListener('click', () => {
         navMobile.style.width = '75vw';
-        navMobile.style.padding = '4rem 1.5rem 1rem';
+        navMobile.style.padding = '2rem 2rem 1rem';
         overlay.classList.remove('hidden');
     });
     
