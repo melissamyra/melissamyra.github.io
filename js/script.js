@@ -214,7 +214,7 @@ const handleNavEvents = e => {
         displayDefaultLayout();
     }
 
-    if (e.target !== navMobile && button !== 'Portfolio' && e.target.id !== 'nav_portfolio' && e.target.id !== 'nav_socials') {
+    if (e.target !== navMobile && button !== 'Portfolio' && e.target.id !== 'nav_portfolio' && e.target.id !== 'nav_socials' && e.target.className !== 'portfolios' && e.target.tagName !== 'LI') {
         closeOverlay();
     }
 };
@@ -354,7 +354,12 @@ portfolioSec.addEventListener('click', e => {
         const card = e.target.closest(".card_fewd");
         const index = card.getAttribute('data-index');
         displayCard(index);
-        body.scrollIntoView();
+        
+        if (mqSmall.matches) {
+            window.scrollTo(0,0);
+        } else if (mqMedUp.matches) {
+            body.scrollIntoView();
+        }
     }
 });
 
