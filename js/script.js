@@ -289,7 +289,21 @@ const insertPortfolio = (array, id, cardClass, heading) => {
 
     main.style.marginTop = '';
 
-    document.getElementById('portfolio_heading').scrollIntoView();
+    const positionX = element => element.offsetTop;
+    const positionY = element => element.offsetLeft;
+    if (mqSmall.matches) {
+        const portfolioX = positionX(portfolioSec) - 30;
+        const portfolioY = positionY(portfolioSec);
+        setTimeout(()=>{
+            window.scrollTo(portfolioY, portfolioX);
+        },100);
+    } else {
+        const portfolioX = positionX(portfolioSec);
+        const portfolioY = positionY(portfolioSec);
+        setTimeout(()=>{
+            window.scrollTo(portfolioY, portfolioX);
+        },100);
+    }
 };
 
 //display FEWD project data
