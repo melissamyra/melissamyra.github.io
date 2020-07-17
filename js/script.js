@@ -242,6 +242,7 @@ const handleMLScreenNavEvents = e => {
         portfolioSecLinks.forEach(link => link.style.color = '#151515');
     } else if (button === about || button === contact || button === fewd || button === illus || button === gd) {
         displayDefaultLayout();
+        hide(intro);
     }
 };
 
