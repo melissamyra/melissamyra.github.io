@@ -186,6 +186,7 @@ const closeOverlay = () => {
 //display default home page
 const displayDefaultLayout = () => {
     hide(portfolioPreview);
+    setDefaultDisplay(intro);
     setDefaultDisplay(portfolioSec);
     setDefaultDisplay(header);
     setDefaultDisplay(about);
@@ -323,6 +324,7 @@ const displayCard = index => {
             </div>
         `;
 
+    hide(intro);
     hide(portfolioSec);
     hide(header);
     hide(about);
