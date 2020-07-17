@@ -4,31 +4,11 @@
 header {
     height: 100vh;
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: flex-end;
     background: transparent;
     @include grid(header);
     @include mq(768px) {
-    }
-    &::after {
-        content: '';
-        display: block;
-        width: 20%;
-        margin: 0 auto 40px;
-        border-bottom: 4px solid lighten($primary, 10%);
-        @include mq(768px) {
-            display: none;
-        }
-    }
-    span {
-        display: none;
-    }
-    .container {
-        display: none;
-        padding: 1.2rem;
-        text-align: right;
-        position: fixed;
-        top: 0;
-        right: 0;
+        display: flex;
     }
 }

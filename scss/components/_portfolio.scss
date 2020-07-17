@@ -19,9 +19,9 @@
             margin-bottom: 2rem;
             filter: grayscale(.7);
             transition: filter .3s;
-            &:hover {
-                filter: none;
-            }
+            // &:hover {
+            //     filter: none;
+            // }
         }
         h4, p {
             text-align: left;
@@ -60,9 +60,9 @@
         img {
             filter: grayscale(.7);
             transition: filter .3s;
-            &:hover {
-                filter: none;
-            }
+            // &:hover {
+            //     filter: none;
+            // }
         }
         p {
             display: none;

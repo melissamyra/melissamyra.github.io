@@ -40,6 +40,14 @@
     transform: translateY(0);
   }
 }
+@keyframes slide-down {
+  0% {
+    transform: translateY(-250px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 @keyframes hide {
   0% {
     opacity: 1;
@@ -76,19 +84,9 @@ html {
   -ms-overflow-style: none;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 body {
   font-family: "Muli", sans-serif;
-  color: #3a3a3a;
-  background-image: url(../images/owl-min.png);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: 180%;
-  background-position: 65% 0%;
-  background-color: rgba(255, 255, 255, 0.199);
+  color: #151515;
   background-blend-mode: lighten;
 }
 @media (min-width: 768px) {
@@ -169,33 +167,15 @@ main {
 header {
   height: 100vh;
   width: 100%;
-  display: flex;
+  display: none;
   justify-content: flex-end;
   background: transparent;
   grid-area: header;
 }
-header::after {
-  content: "";
-  display: block;
-  width: 20%;
-  margin: 0 auto 40px;
-  border-bottom: 4px solid #e9d0a0;
-}
 @media (min-width: 768px) {
-  header::after {
-    display: none;
+  header {
+    display: flex;
   }
-}
-header span {
-  display: none;
-}
-header .container {
-  display: none;
-  padding: 1.2rem;
-  text-align: right;
-  position: fixed;
-  top: 0;
-  right: 0;
 }
 
 .menu_mobile {
@@ -216,8 +196,10 @@ header .container {
   }
 }
 .menu_mobile h2 {
+  opacity: 0;
   pointer-events: none;
   letter-spacing: 0.5px;
+  transition: opacity 0.3s;
 }
 
 nav a, nav label {
@@ -236,7 +218,7 @@ nav a, nav label {
   nav a, nav label {
     border: none;
     padding: 10px 0;
-    color: #3a3a3a;
+    color: #151515;
     font-weight: 600;
   }
 }
@@ -379,6 +361,82 @@ nav li {
   transition: all 0.3s;
 }
 
+h1, #intro span {
+  animation: slide-down 1s forwards;
+}
+
+#intro {
+  min-height: 100vh;
+  background-color: transparent;
+  opacity: 1;
+  transition: opacity 1.5s, transform 1.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  #intro {
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+#intro::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 20%;
+  margin: 0 auto 35px;
+  border-bottom: 4px solid #e9d0a0;
+}
+@media (min-width: 768px) {
+  #intro::after {
+    display: none;
+  }
+}
+#intro_text {
+  overflow: hidden;
+  height: 200px;
+  width: 800px;
+  text-align: center;
+  margin-top: 80px;
+}
+#intro span {
+  display: block;
+  font-size: 0.6rem;
+  color: #dfbc77;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  #intro span {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+  }
+}
+
+h1 {
+  font-size: 1.6rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  letter-spacing: 2px;
+}
+@media (min-width: 768px) {
+  h1 {
+    font-weight: 400;
+    font-size: 3rem;
+    letter-spacing: 5px;
+  }
+}
+
 #portfolio {
   text-align: center;
   padding: 3rem 1.5rem;
@@ -390,8 +448,8 @@ nav li {
   }
 }
 #portfolio h3 {
-  color: #3a3a3a;
-  border-color: #3a3a3a;
+  color: #151515;
+  border-color: #151515;
 }
 #portfolio_preview {
   padding: 2rem;
@@ -401,9 +459,6 @@ nav li {
   margin-bottom: 2rem;
   filter: grayscale(0.7);
   transition: filter 0.3s;
-}
-#portfolio_preview img:hover {
-  filter: none;
 }
 #portfolio_preview h4, #portfolio_preview p {
   text-align: left;
@@ -442,9 +497,6 @@ nav li {
 .card_fewd img, .card_illus img, .card_gd img {
   filter: grayscale(0.7);
   transition: filter 0.3s;
-}
-.card_fewd img:hover, .card_illus img:hover, .card_gd img:hover {
-  filter: none;
 }
 .card_fewd p, .card_illus p, .card_gd p {
   display: none;
@@ -492,7 +544,7 @@ nav li {
   }
 }
 .card_fewd img {
-  border: 1px solid #3a3a3a;
+  border: 1px solid #151515;
   cursor: pointer;
 }
 .card_illus {
@@ -518,6 +570,7 @@ nav li {
 }
 @media (min-width: 768px) {
   #about {
+    margin-top: 20rem;
     padding: 8rem 1.5rem 0;
     background-color: transparent;
   }
@@ -580,7 +633,7 @@ nav li {
 }
 
 #skills {
-  background-color: #3a3a3a;
+  background-color: #151515;
   background-image: url(../images/astronomy-dark-min.jpg);
   background-size: 180%;
   background-position: 10% 8%;
@@ -760,7 +813,7 @@ footer p {
 }
 @media (min-width: 768px) {
   .icon_social {
-    fill: #3a3a3a;
+    fill: #151515;
     width: 25px;
     height: 25px;
   }

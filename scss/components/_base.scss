@@ -8,19 +8,19 @@ html {
     -ms-overflow-style: none;  // IE and Edge
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
+// ::-webkit-scrollbar {
+//     display: none;
+// }
 
 body {
     font-family: $sans;
     color: $secondary;
-    background-image: url(../images/owl-min.png);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 180%;
-    background-position: 65% 0%;
-    background-color: rgba(255, 255, 255, 0.199);
+    // background-image: url(../images/owl-min.png);
+    // background-attachment: fixed;
+    // background-repeat: no-repeat;
+    // background-size: 180%;
+    // background-position: 65% 0%;
+    // background-color: #151515;
     background-blend-mode: lighten;
     @include mq(768px) {
         background-color: $dark;

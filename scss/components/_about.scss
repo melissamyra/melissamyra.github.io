@@ -6,6 +6,7 @@
     background-position: 20% 40%;
     @include grid(about);
     @include mq(768px) {
+        margin-top: 20rem;
         padding: 8rem 1.5rem 0;
         background-color: transparent;
     }

@@ -5,7 +5,9 @@ const mqSmall = window.matchMedia('(max-width: 768px)');
 const mqMedUp = window.matchMedia('(min-width: 768px)');
 
 //DOM Elements
+const mobileLogo = document.querySelector('.menu_mobile h2');
 const body = document.querySelector('body');
+const intro = document.getElementById('intro');
 const header = document.querySelector('header');
 const main = document.querySelector('main');
 const about = document.getElementById('about');
@@ -24,6 +26,7 @@ const navFEWD = document.getElementById('navFEWD');
 const navILL = document.getElementById('navILL');
 const navGD = document.getElementById('navGD');
 const portfolioLinks = document.querySelector('.portfolios');
+const portfolioSecLinks = document.querySelectorAll('.portfolios_link');
 
 //date
 const date = new Date();
@@ -232,6 +235,10 @@ const handleMLScreenNavEvents = e => {
     if (button === home) {
         displayDefaultLayout();
         setBGcolour(body, '');
+        setDefaultDisplay(intro);
+        intro.style.opacity = '';
+        intro.style.transform = '';
+        portfolioSecLinks.forEach(link => link.style.color = '#151515');
     } else if (button === about || button === contact || button === fewd || button === illus || button === gd) {
         displayDefaultLayout();
     }
@@ -345,6 +352,18 @@ if (mqSmall.matches) {
             portfolioSec.scrollIntoView();
         }
     });
+
+    const position = element => element.offsetTop;
+    const aboutPos = position(about) - 500;
+
+    window.addEventListener('scroll', () => {
+
+        if (window.pageYOffset >= aboutPos) {
+            mobileLogo.style.opacity = '1';
+        } else {
+            mobileLogo.style.opacity = '';
+        }
+    });
 }
 
 portfolioLinks.addEventListener('click', handlePortfolioEvents);
@@ -370,7 +389,7 @@ if (mqMedUp.matches) {
         const cards = document.querySelectorAll('[class^="card"]');
         const heading = document.getElementById('portfolio_heading');
         const portfolioPos = position(portfolioSec) - 500;
-        const aboutPos = position(about) - 800;
+        const aboutPos = position(about) - 1000;
         
             if (window.pageYOffset >= portfolioPos) {
                 cards.forEach(card => animate(card, 'slide-up 1s forwards'));
@@ -382,8 +401,20 @@ if (mqMedUp.matches) {
 
             if (window.pageYOffset >= aboutPos) {
                 setBGcolour(body, '#fff');
+                portfolioSecLinks.forEach(link => link.style.color = '');
+                intro.style.opacity = '0';
+                intro.style.transform = 'translateY(-150px)';
+                setTimeout(()=> {
+                    hide(intro)
+                },100);
             } else {
                 setBGcolour(body, '');
+                portfolioSecLinks.forEach(link => link.style.color = '#151515');
+                setTimeout(()=> {
+                    setDefaultDisplay(intro);
+                },200);
+                intro.style.opacity = '';
+                intro.style.transform = '';
             }
 
     });
