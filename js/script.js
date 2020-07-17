@@ -204,6 +204,23 @@ const handlePortfolioEvents = e => {
     } else if (e.target === navGD) {
         insertPortfolio(gdPortfolio, 'portfolio_gd', 'gd', 'Visual Design Work');
     }
+
+    const positionX = element => element.offsetTop;
+    const positionY = element => element.offsetLeft;
+
+    if (mqSmall.matches) {
+        const portfolioX = positionX(portfolioSec) - 30;
+        const portfolioY = positionY(portfolioSec);
+        setTimeout(()=>{
+            window.scrollTo(portfolioY, portfolioX);
+        },100);
+    } else {
+        const portfolioX = positionX(portfolioSec);
+        const portfolioY = positionY(portfolioSec);
+        setTimeout(()=>{
+            window.scrollTo(portfolioY, portfolioX);
+        },100);
+    }
 };
 
 //handle navigation clicks
@@ -290,22 +307,6 @@ const insertPortfolio = (array, id, cardClass, heading) => {
     setDefaultDisplay(contact);
 
     main.style.marginTop = '';
-
-    const positionX = element => element.offsetTop;
-    const positionY = element => element.offsetLeft;
-    if (mqSmall.matches) {
-        const portfolioX = positionX(portfolioSec) - 30;
-        const portfolioY = positionY(portfolioSec);
-        setTimeout(()=>{
-            window.scrollTo(portfolioY, portfolioX);
-        },100);
-    } else {
-        const portfolioX = positionX(portfolioSec);
-        const portfolioY = positionY(portfolioSec);
-        setTimeout(()=>{
-            window.scrollTo(portfolioY, portfolioX);
-        },100);
-    }
 };
 
 //display FEWD project data
@@ -380,6 +381,14 @@ if (mqSmall.matches) {
         } else {
             mobileLogo.style.opacity = '';
         }
+
+        if (portfolioPreview.style.display === '') {
+            mobileLogo.style.opacity = '1';
+        }
+    });
+
+    mobileLogo.addEventListener('click', () => {
+        displayDefaultLayout();
     });
 }
 
