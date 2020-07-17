@@ -368,7 +368,7 @@ h1, #intro span {
   min-height: 100vh;
   background-color: transparent;
   opacity: 1;
-  transition: opacity 1.5s, transform 1.5s;
+  transition: opacity 1s, transform 1s;
   display: flex;
   justify-content: center;
   align-items: center;
