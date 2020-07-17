@@ -398,6 +398,24 @@ h1, #intro span {
     display: none;
   }
 }
+#intro::before {
+  content: "scroll";
+  color: #dfbc77;
+  font-size: 0.9rem;
+  display: block;
+  position: absolute;
+  height: 60px;
+  min-width: 1px;
+  border-left: 1px solid #997224;
+  padding-left: 10px;
+  bottom: 0;
+  left: 50%;
+}
+@media (max-width: 768px) {
+  #intro::before {
+    display: none;
+  }
+}
 #intro_text {
   overflow: hidden;
   height: 200px;
