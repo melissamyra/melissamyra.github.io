@@ -87,7 +87,6 @@ html {
 body {
   font-family: "Muli", sans-serif;
   color: #151515;
-  background-blend-mode: lighten;
 }
 @media (min-width: 768px) {
   body {

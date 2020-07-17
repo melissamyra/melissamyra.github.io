@@ -381,10 +381,7 @@ if (mqSmall.matches) {
         } else {
             mobileLogo.style.opacity = '';
         }
-
-        if (portfolioPreview.style.display === '') {
-            mobileLogo.style.opacity = '1';
-        }
+        
     });
 
     mobileLogo.addEventListener('click', () => {
